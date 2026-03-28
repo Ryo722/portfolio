@@ -32,14 +32,15 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'zero-trust-home-server',
     title: {
-      ja: 'ゼロトラスト自宅サーバーを3万円で構築した',
-      en: 'Building a zero-trust home server for $200',
+      ja: 'ゼロトラスト自宅サーバーを3万円で構築した全記録',
+      en: 'Building a zero-trust home server for $200 — full record',
     },
-    date: '2026-03-20',
-    tags: ['Infrastructure', 'Docker', 'Security'],
+    date: '2026-03-29',
+    tags: ['Infrastructure', 'Docker', 'Security', 'Cloudflare', 'Tailscale'],
     excerpt: {
-      ja: 'Cloudflare TunnelとTailscaleで公開/管理経路を完全分離し、Prometheus+Grafana+Uptime Kumaで3重モニタリングする自宅サーバーの構築記録。',
-      en: 'A build log of a self-hosted server with complete route separation via Cloudflare Tunnel + Tailscale, and triple monitoring with Prometheus + Grafana + Uptime Kuma.',
+      ja: 'NUCBox 3にCloudflare Tunnel × Tailscaleでポート開放なしの自宅サーバー。2層ネットワーク・自動デプロイ・バックアップまでの全設計。',
+      en: 'Home server on NUCBox 3 with zero open ports via Cloudflare Tunnel × Tailscale. Full design covering 2-layer networking, auto-deploy, and backup.',
     },
+    url: '/portfolio/blog/zero-trust-home-server.md',
   },
 ]
