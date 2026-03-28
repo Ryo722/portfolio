@@ -70,13 +70,23 @@
 
 ### エージェント（意思決定）
 - **project-lead**: 全体方針・優先順位判定・タスク委任
+- **blog-editor**: ブログ記事の企画→執筆→レビュー→公開パイプライン統括
 
 ### スキル（実務）
+
+#### サイト運用
 - **code-quality**: ESLint/TypeScript チェック、コード品質確認
 - **deploy-checker**: デプロイ前5ゲートチェック
 - **brand-guard**: 公開コンテンツのブランド整合性チェック
 - **content-manager**: プロジェクト追加・更新の標準手順
 - **daily-ops-log**: 日次作業記録
+
+#### ブログ制作
+- **blog-planner**: 記事の企画・ブリーフ作成
+- **blog-writer**: 記事本文の執筆（`blog-voice` 自動適用）
+- **blog-voice**: ブログの文体・トーン定義（自動適用、直接呼出不可）
+- **blog-reviewer**: 記事の5軸品質レビュー
+- **blog-publisher**: レビュー済み記事の公開処理
 
 詳細: `.claude/skills/` 配下の各 SKILL.md
 
@@ -84,10 +94,14 @@
 
 | コマンド | 用途 |
 |---|---|
-| `/add-project` | 新規プロジェクトの追加（テンプレート + チェックリスト） |
+| `/add-project` | 新規プロジェクトの追加 |
 | `/deploy` | デプロイ前チェック + デプロイ手順表示 |
 | `/quality-check` | 5ゲート一括チェック |
 | `/update-content` | 既存プロジェクト情報の更新 |
+| `/write-blog` | ブログ記事の全制作フロー（企画→公開） |
+| `/plan-blog` | ブログ記事の企画・ブリーフのみ |
+| `/review-blog` | ブログ記事のレビューのみ |
+| `/publish-blog` | レビュー済み記事の公開 |
 
 ## ディレクトリ構成
 
