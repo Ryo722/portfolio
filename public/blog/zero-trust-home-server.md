@@ -33,58 +33,46 @@ GMKtec NUCBox 3（Celeron J4125, 8GB RAM, 128GB SSD）に、Dockerで6つのア�
 
 クラウドなら AWS のセキュリティグループや VPC でネットワーク層を守れる。自宅サーバーにはそれがない。代わりに、Cloudflare Tunnel で「ポートを開けずに公開する」、Tailscale で「VPN経由でしか管理できない」という2つの壁を作った。
 
-ファイアウォール（UFW）の設定は極めてシンプルだ。
+ファイアウォール（UFW）の方針は極めてシンプルだ。
 
-```bash
-ufw default deny incoming
-ufw default allow outgoing
-ufw allow in on tailscale0 to any port 22 proto tcp  # SSH は Tailscale のみ
-```
+- 受信は全ポートをデフォルト拒否
+- 送信のみ許可
+- 例外として、Tailscale VPNインターフェース経由のSSHだけを許可
 
 SSHも最小限に絞っている。
 
-- PermitRootLogin: no
-- PasswordAuthentication: no（公開鍵のみ）
-- MaxAuthTries: 3
-- LoginGraceTime: 30s
-- AllowUsers: server, deploy
+- rootログイン禁止
+- パスワード認証禁止（公開鍵のみ）
+- 認証試行回数を制限
+- 接続猶予時間を短く設定
+- 許可ユーザーを必要最小限に限定
 
 ## 2層ネットワーク設計
 
 Docker内のネットワークも2層に分離した。
 
 ```
-front_net（公開系）
-  ├── cloudflared（Cloudflare Tunnel）
-  ├── dmplays-frontend（Next.js）
-  ├── dmplays-backend（Express API）
-  ├── social-web（Next.js）
-  └── uptime-kuma（モニタリング）
+公開系ネットワーク
+  ├── Cloudflare Tunnel
+  ├── フロントエンドアプリ群（Next.js）
+  ├── バックエンドAPI群
+  └── モニタリングツール
 
-data_net（DB系）
-  ├── postgres
-  ├── dmplays-backend
-  ├── social-web
-  └── social-worker
+DB系ネットワーク
+  ├── PostgreSQL
+  └── バックエンドAPI群（公開系にも所属）
 ```
 
-公開アプリは `front_net` に所属し、Cloudflare Tunnel 経由でアクセスされる。PostgreSQLは `data_net` にのみ所属し、外部から直接到達できない。バックエンドアプリは両方のネットワークに所属し、フロントからのリクエストを受けてDBにアクセスする。
+公開アプリは公開系ネットワークに所属し、Cloudflare Tunnel経由でアクセスされる。DBはDB系ネットワークにのみ所属し、外部から直接到達できない。バックエンドアプリは両方のネットワークに所属し、フロントからのリクエストを受けてDBにアクセスする。
 
 ## コンテナセキュリティ
 
-全コンテナに以下のセキュリティ設定を適用している。
+全コンテナに以下のセキュリティ方針を適用している。
 
-```yaml
-read_only: true
-security_opt:
-  - no-new-privileges:true
-cap_drop:
-  - ALL
-tmpfs:
-  - /tmp
-```
-
-`read_only: true` でファイルシステムを読み取り専用にし、`cap_drop: [ALL]` で全てのLinux capabilityを除去する。一時ファイルが必要な場合は `tmpfs` でメモリ上に作る。
+- **ファイルシステム読み取り専用**: コンテナ内での書き込みを禁止
+- **全Linux capability除去**: 必要な権限のみ明示的に付与
+- **権限昇格禁止**: 実行中の権限拡大を防止
+- **一時領域はメモリ上**: ディスクへの書き込みを回避
 
 `docker.sock` をコンテナに渡すことも禁止している。これを渡すと、コンテナ内からホストの全Dockerコンテナを操作できてしまう。
 
@@ -103,7 +91,7 @@ GitHub Actions 上でイメージをビルドし、GHCR（GitHub Container Regis
 
 ロールバックも簡単で、前のイメージタグに戻してcompose upするだけだ。
 
-Tailscale の GitHub Action (`tailscale/github-action@v3`) を使い、GitHub Actions のランナーからサーバーにVPN接続している。公開ポートなしでも、CI/CDパイプラインからサーバーにアクセスできる。
+Tailscale の GitHub Action を使い、GitHub Actions のランナーからサーバーにVPN接続している。公開ポートなしでも、CI/CDパイプラインからサーバーにアクセスできる。
 
 ## バックアップ
 
@@ -125,7 +113,7 @@ PostgreSQLのバックアップは `pg_dumpall --globals-only` でロール定�
 
 ## モニタリング
 
-Uptime Kuma を導入し、各アプリケーションのヘルスチェックを行っている。`status.dm-play.win` として Cloudflare Tunnel 経由で公開ステータスページを提供している。
+Uptime Kuma を導入し、各アプリケーションのヘルスチェックを行っている。Cloudflare Tunnel 経由で公開ステータスページも提供している。
 
 当初はPrometheus + Grafanaも計画していたが、NUCBox 3のリソース（8GB RAM）を考慮して見送った。Uptime Kuma だけでも、ダウン検知と通知は十分に機能している。
 

@@ -87,6 +87,7 @@
 - **blog-voice**: ブログの文体・トーン定義（自動適用、直接呼出不可）
 - **blog-reviewer**: 記事の5軸品質レビュー
 - **blog-publisher**: レビュー済み記事の公開処理
+- **blog-security-reviewer**: 記事のセキュリティレビュー（7軸: 秘密情報/インフラ/攻撃面/個人情報/パス/依存/著作権）
 - **note-formatter**: 記事をnote投稿用フォーマット（タイトル/本文/タグ/マガジン）に変換
 
 詳細: `.claude/skills/` 配下の各 SKILL.md

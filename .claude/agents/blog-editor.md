@@ -17,6 +17,7 @@
 | 執筆 | `blog-writer` | 記事本文の執筆（`blog-voice` 自動適用） |
 | レビュー | `blog-reviewer` | 5軸品質レビュー |
 | ブランド | `brand-guard` | ブランド整合性チェック |
+| セキュリティ | `blog-security-reviewer` | 7軸セキュリティレビュー |
 | 公開 | `blog-publisher` | データ登録、ゲートチェック、デプロイ |
 
 ## パイプライン
@@ -26,7 +27,7 @@
   ↓ ブリーフ → 人間承認
 [執筆] blog-writer (+ blog-voice)
   ↓ 記事ドラフト
-[レビュー] blog-reviewer ∥ brand-guard（並列）
+[レビュー] blog-reviewer ∥ brand-guard ∥ blog-security-reviewer（3並列）
   ├─ PASS → [公開]へ
   ├─ REVISE → 軽微修正 → [公開]へ
   └─ REWORK → blog-writer で改稿 → [レビュー]に戻る（最大2回）

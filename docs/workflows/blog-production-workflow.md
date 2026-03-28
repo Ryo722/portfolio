@@ -40,12 +40,18 @@
 - 実行: `brand-guard` スキル
 - Task 2-1 と並列実行可
 
-### Task 2-3: 修正（REVISE / REWORK の場合）
+### Task 2-3: セキュリティレビュー
+- 実行: `blog-security-reviewer` スキル（7軸評価）
+- Task 2-1, 2-2 と並列実行可
+- チェック: 秘密情報、インフラ情報、攻撃面、個人情報、ローカルパス、依存関係、著作権
+- **インフラ系記事は特に重点チェック**: 具体的な設定値→概念説明への置換を徹底
+
+### Task 2-4: 修正（REVISE / REWORK の場合）
 - REVISE: 軽微修正して Phase 3 へ
 - REWORK: `blog-writer` で改稿 → Phase 2 に戻る
 - 修正ループ上限: 2回
 
-**ゲート**: QC Gate（`blog-reviewer` PASS + `brand-guard` PASS）
+**ゲート**: QC Gate（`blog-reviewer` PASS + `brand-guard` PASS + `blog-security-reviewer` PASS）
 
 ## Phase 3: 公開準備
 
@@ -88,8 +94,8 @@
 ```
 [企画] → 人間承認 → [執筆] → Brand Gate
                            ↓
-                    [レビュー(並列)]
-                    reviewer ∥ brand-guard
+                    [レビュー(3並列)]
+                    reviewer ∥ brand-guard ∥ security-reviewer
                            ↓
                       QC Gate判定
                      ├─ PASS
