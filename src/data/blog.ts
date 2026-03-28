@@ -4,15 +4,16 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'building-game-engine',
     title: {
-      ja: '11,000枚のカードを動かすゲームエンジンを一人で書いた話',
-      en: 'Building a game engine that powers 11,000+ cards — solo',
+      ja: '11,000枚のカードを動かすゲームエンジンをAIと書いた話',
+      en: 'Building a game engine that powers 11,000+ cards — with AI',
     },
-    date: '2026-03-28',
-    tags: ['TypeScript', 'Game Engine', 'Architecture'],
+    date: '2026-03-29',
+    tags: ['TypeScript', 'Game Engine', 'Architecture', 'AI', 'Claude Code'],
     excerpt: {
-      ja: 'デュエル・マスターズの総合ルールに準拠した純粋関数型ゲームエンジンを、152モジュール・1,565テストの規模で個人開発した設計と実装の記録。',
-      en: 'A design and implementation record of a pure-functional game engine compliant with Duel Masters comprehensive rules — 152 modules, 1,565+ tests, built solo.',
+      ja: '純粋関数型ゲームエンジンを152モジュール・1,065テストの規模でAIと共同開発した設計と実装の記録。UIは人間がドライブし、ロジックはAIと組む——役割分担の話。',
+      en: 'A pure-functional game engine with 152 modules and 1,065+ tests, co-developed with AI. Logic with AI, UI driven by human — a story of role division.',
     },
+    url: '/portfolio/blog/building-game-engine.md',
   },
   {
     slug: 'multi-agent-orchestration',
