@@ -18,15 +18,16 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'multi-agent-orchestration',
     title: {
-      ja: 'Claude Codeで「一人事務所OS」を作った',
-      en: 'Building a "one-person agency OS" with Claude Code',
+      ja: 'Claude Codeで「AIと回す運営OS」を3ドメインに展開した',
+      en: 'Building AI-powered operational OS across 3 domains with Claude Code',
     },
-    date: '2026-03-25',
-    tags: ['AI', 'Claude Code', 'Automation'],
+    date: '2026-03-29',
+    tags: ['AI', 'Claude Code', 'Automation', 'Multi-Agent', 'takt'],
     excerpt: {
-      ja: 'taktマルチエージェントエンジンとClaude Codeのスキル体系を使い、8〜11エージェント規模の運営OSを3ドメインで構築・運用している話。',
-      en: 'How I built and operate 8–11 agent operational OS across 3 domains using takt multi-agent engine and Claude Code skill system.',
+      ja: '小説出版・VTuber事務所・SNS収益化——3ドメインでエージェント・スキル体系の運営OSを設計・運用。自動化は段階的に深化する。',
+      en: 'Novel publishing, VTuber agency, SNS monetization — designing operational OS with agents and skills across 3 domains. Automation deepens gradually.',
     },
+    url: '/portfolio/blog/multi-agent-orchestration.md',
   },
   {
     slug: 'zero-trust-home-server',
