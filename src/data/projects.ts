@@ -154,4 +154,71 @@ export const projects: Project[] = [
     image: null,
     visibility: 'private',
   },
+  {
+    slug: 'sns-auto-post',
+    name: { ja: 'SNS自動予約投稿システム', en: 'SNS Auto-Post Scheduler' },
+    category: '自動化 / フルスタック',
+    summary: {
+      ja: 'X + Threads 計6アカウントの予約投稿を一元管理',
+      en: 'Centralized scheduled posting for 6 accounts across X + Threads',
+    },
+    description: {
+      ja: `X（3アカウント）とThreads（3アカウント）の予約投稿をTypeScript monorepoで統合管理。管理画面（Next.js）・ジョブワーカー・DBをpnpm workspaceで分離し、pg-bossによるジョブキューイングで非同期投稿処理を実現。`,
+      en: `A TypeScript monorepo managing scheduled posts for 3 X accounts and 3 Threads accounts. Separated into admin UI (Next.js), job worker, and DB via pnpm workspace, with pg-boss job queuing for async post processing.`,
+    },
+    techStack: ['TypeScript', 'Next.js', 'Prisma', 'PostgreSQL', 'pg-boss', 'Docker', 'pnpm workspace'],
+    highlights: [
+      { ja: 'pnpm workspaceによるmonorepo構成（5パッケージ）', en: 'Monorepo with pnpm workspace (5 packages)' },
+      { ja: 'pg-bossによるジョブキューイングで非同期投稿', en: 'Async posting via pg-boss job queuing' },
+      { ja: 'マルチアカウント・マルチプラットフォーム対応', en: 'Multi-account, multi-platform support' },
+    ],
+    githubUrl: null,
+    demoUrl: null,
+    image: null,
+    visibility: 'private',
+  },
+  {
+    slug: 'pokeca-damage-unity',
+    name: { ja: 'ポケカダメージ計算', en: 'Pokémon TCG Damage Calculator' },
+    category: 'ゲームツール',
+    summary: {
+      ja: 'ポケモンカードゲームのダメージ計算をUnityで実装',
+      en: 'Pokémon TCG damage calculator built with Unity',
+    },
+    description: {
+      ja: `ポケモンカードゲームのダメージ計算を、ドラッグ＆ドロップの直感的なUIで行えるシミュレーター。バトル場とベンチにカードを配置し、ダメージを自動計算します。`,
+      en: `A simulator for Pokémon TCG damage calculation with an intuitive drag-and-drop UI. Place cards on the battle field and bench to auto-calculate damage.`,
+    },
+    techStack: ['Unity 2020', 'C#'],
+    highlights: [
+      { ja: 'ドラッグ＆ドロップによる直感的なカード配置', en: 'Intuitive card placement via drag & drop' },
+      { ja: 'バトル場・ベンチの管理ロジック', en: 'Battle field and bench management logic' },
+    ],
+    githubUrl: 'https://github.com/Ryo722/PokecaDamageUnity',
+    demoUrl: null,
+    image: null,
+    visibility: 'public',
+  },
+  {
+    slug: 'notion-journal',
+    name: { ja: 'Notion日記自動化', en: 'Notion Journal Automation' },
+    category: '自動化 / CLI',
+    summary: {
+      ja: 'ChatGPT音声入力 → Notion Daily Journalへ半自動追記',
+      en: 'Semi-automated daily journal: ChatGPT voice input → Notion',
+    },
+    description: {
+      ja: `ChatGPTで音声入力→整理したMarkdownを、クリップボード経由でNotion Daily Journalに自動追記するシェルスクリプトシステム。ncli（Notion CLI）を活用した半自動フロー。`,
+      en: `A shell script system that auto-appends voice-input text organized via ChatGPT to Notion Daily Journal through clipboard. Semi-automated flow using ncli (Notion CLI).`,
+    },
+    techStack: ['Bash', 'Notion CLI (ncli)', 'Notion API'],
+    highlights: [
+      { ja: '音声入力→Markdown整理→Notion追記の半自動パイプライン', en: 'Semi-automated pipeline: voice → Markdown → Notion' },
+      { ja: 'シェルスクリプトによる軽量な自動化設計', en: 'Lightweight automation with shell scripts' },
+    ],
+    githubUrl: null,
+    demoUrl: null,
+    image: null,
+    visibility: 'private',
+  },
 ]
