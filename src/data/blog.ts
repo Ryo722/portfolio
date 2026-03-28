@@ -43,4 +43,46 @@ export const blogPosts: BlogPost[] = [
     },
     url: '/portfolio/blog/zero-trust-home-server.md',
   },
+  {
+    slug: 'canvas-rendering-engine',
+    title: {
+      ja: 'Canvas APIで3レイヤーの画像合成エンジンを自作した',
+      en: 'Building a 3-layer image compositing engine with Canvas API',
+    },
+    date: '2026-03-29',
+    tags: ['Canvas API', 'React', 'TypeScript', 'Image Processing'],
+    excerpt: {
+      ja: 'Illustration / Text / Frameの3レイヤー合成エンジンをCanvas APIで自作した設計記録。テキスト描画パイプラインとツインパクト対応の話。',
+      en: 'Built a 3-layer compositing engine (Illustration / Text / Frame) with Canvas API. Text rendering pipeline and Twinpact card support.',
+    },
+    url: '/portfolio/blog/canvas-rendering-engine.md',
+  },
+  {
+    slug: 'sns-auto-post-monorepo',
+    title: {
+      ja: 'pnpm workspace + pg-bossで6アカウントSNS自動投稿を作った',
+      en: 'Building a 6-account SNS auto-poster with pnpm workspace + pg-boss',
+    },
+    date: '2026-03-29',
+    tags: ['TypeScript', 'Next.js', 'PostgreSQL', 'pg-boss', 'monorepo'],
+    excerpt: {
+      ja: 'X 3 + Threads 3 = 計6アカウントの予約投稿を、pnpm monorepo + pg-bossで構築。Advisory Lockで排他制御、AMBIGUOUSで二重投稿防止。',
+      en: '6-account scheduled posting with pnpm monorepo + pg-boss. Advisory Lock for concurrency, AMBIGUOUS status to prevent double posts.',
+    },
+    url: '/portfolio/blog/sns-auto-post-monorepo.md',
+  },
+  {
+    slug: 'portfolio-with-ai',
+    title: {
+      ja: 'AIと一緒にポートフォリオを作った全工程を公開する',
+      en: 'Building a portfolio with AI — the entire process',
+    },
+    date: '2026-03-29',
+    tags: ['AI', 'Claude Code', 'Portfolio', 'Vite', 'React'],
+    excerpt: {
+      ja: '調査・設計・実装・デプロイ・OS化まで、ポートフォリオサイトをAIと共同開発した全工程の記録。人間がやったこと・AIがやったことの役割分担。',
+      en: 'Full process of building a portfolio with AI — research, design, implementation, deploy, and OS-ification. The role division between human and AI.',
+    },
+    url: '/portfolio/blog/portfolio-with-ai.md',
+  },
 ]
