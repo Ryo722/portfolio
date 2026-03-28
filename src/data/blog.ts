@@ -85,4 +85,46 @@ export const blogPosts: BlogPost[] = [
     },
     url: '/portfolio/blog/portfolio-with-ai.md',
   },
+  {
+    slug: 'llm-fx-pipeline',
+    title: {
+      ja: 'LLMで銀行レポートを構造化する — M4FXのパイプライン設計',
+      en: 'Structuring bank reports with LLMs — M4FX pipeline design',
+    },
+    date: '2026-03-29',
+    tags: ['AI', 'LLM', 'Python', 'PostgreSQL', 'Finance'],
+    excerpt: {
+      ja: '邦銀FXレポートをLLMで構造化し毎朝シグナルを自動生成。6つのプロンプトと3つの時間帯パイプライン、キャッシュ戦略の設計記録。',
+      en: 'Structuring bank FX reports with LLMs for daily signal generation. 6 prompts, 3 time-zone pipelines, and caching strategy.',
+    },
+    url: '/portfolio/blog/llm-fx-pipeline.md',
+  },
+  {
+    slug: 'notion-journal-automation',
+    title: {
+      ja: 'ChatGPT音声入力 → Notion自動追記の半自動ジャーナルを作った',
+      en: 'Building a semi-automated journal: ChatGPT voice → Notion',
+    },
+    date: '2026-03-29',
+    tags: ['Automation', 'Shell Script', 'Notion API', 'Productivity'],
+    excerpt: {
+      ja: '音声入力をChatGPTで整理し、シェルスクリプト350行でNotionに自動追記。3層スクリプト設計で保守性を確保した話。',
+      en: 'Voice input → ChatGPT → Notion auto-append in 350 lines of shell scripts. 3-layer script design for maintainability.',
+    },
+    url: '/portfolio/blog/notion-journal-automation.md',
+  },
+  {
+    slug: 'usereducer-game-state',
+    title: {
+      ja: 'useReducerでゲーム状態管理を設計する',
+      en: 'Designing game state management with useReducer',
+    },
+    date: '2026-03-29',
+    tags: ['React', 'TypeScript', 'useReducer', 'Game Development'],
+    excerpt: {
+      ja: 'スライドパズル×マッチ3ゲームの状態管理。13アクション型、408行の純粋ロジック層、アニメーション制御をuseReducerで設計した記録。',
+      en: '13 action types, 408 lines of pure logic, animation phase control — designing game state with useReducer.',
+    },
+    url: '/portfolio/blog/usereducer-game-state.md',
+  },
 ]
