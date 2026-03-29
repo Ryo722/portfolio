@@ -136,4 +136,19 @@ export const blogPosts: BlogPost[] = [
     url: '/portfolio/blog/usereducer-game-state.md',
     enUrl: '/portfolio/blog/en/usereducer-game-state.md',
   },
+  {
+    slug: 'oss-contribution-process',
+    title: {
+      ja: '手元のフォーク変更をOSSコントリビュートに昇格させた全過程',
+      en: 'Turning local fork changes into proper OSS contributions',
+    },
+    date: '2026-03-29',
+    tags: ['OSS', 'Git', 'Code Review', 'AI', 'Python'],
+    excerpt: {
+      ja: '4つのAI音声・映像系リポジトリの手元変更を精査し、個人設定を除去、破壊的変更を分離、PR品質に引き上げた過程の記録。',
+      en: 'Auditing local changes across 4 AI voice/video repositories — removing personal config, isolating breaking changes, and elevating to PR quality.',
+    },
+    url: '/portfolio/blog/oss-contribution-process.md',
+    enUrl: '/portfolio/blog/en/oss-contribution-process.md',
+  },
 ]
