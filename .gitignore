@@ -25,3 +25,6 @@ dist-ssr
 preview-fullpage.png
 
 preview-*.png
+
+# Lighthouse reports (large JSON)
+ops/reports/lighthouse/
