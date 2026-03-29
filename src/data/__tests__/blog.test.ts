@@ -52,4 +52,14 @@ describe('blog データ整合性', () => {
       expect(post.tags.length, `${post.slug}: less than 3 tags`).toBeGreaterThanOrEqual(3)
     }
   })
+
+  it('enUrl が指定されている場合、英語版ファイルが存在する', () => {
+    for (const post of blogPosts) {
+      if (post.enUrl && post.enUrl.startsWith('/portfolio/blog/en/')) {
+        const filePath = post.enUrl.replace('/portfolio/', '')
+        const fullPath = resolve('public', filePath)
+        expect(existsSync(fullPath), `${post.slug}: English blog file not found at ${fullPath}`).toBe(true)
+      }
+    }
+  })
 })

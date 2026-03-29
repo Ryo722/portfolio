@@ -29,6 +29,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Novel publishing, VTuber agency, SNS monetization — designing operational OS with agents and skills across 3 domains. Automation deepens gradually.',
     },
     url: '/portfolio/blog/multi-agent-orchestration.md',
+    enUrl: '/portfolio/blog/en/multi-agent-orchestration.md',
   },
   {
     slug: 'zero-trust-home-server',
@@ -43,6 +44,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Home server on NUCBox 3 with zero open ports via Cloudflare Tunnel × Tailscale. Full design covering 2-layer networking, auto-deploy, and backup.',
     },
     url: '/portfolio/blog/zero-trust-home-server.md',
+    enUrl: '/portfolio/blog/en/zero-trust-home-server.md',
   },
   {
     slug: 'canvas-rendering-engine',
@@ -57,6 +59,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Built a 3-layer compositing engine (Illustration / Text / Frame) with Canvas API. Text rendering pipeline and Twinpact card support.',
     },
     url: '/portfolio/blog/canvas-rendering-engine.md',
+    enUrl: '/portfolio/blog/en/canvas-rendering-engine.md',
   },
   {
     slug: 'sns-auto-post-monorepo',
@@ -71,6 +74,7 @@ export const blogPosts: BlogPost[] = [
       en: '6-account scheduled posting with pnpm monorepo + pg-boss. Advisory Lock for concurrency, AMBIGUOUS status to prevent double posts.',
     },
     url: '/portfolio/blog/sns-auto-post-monorepo.md',
+    enUrl: '/portfolio/blog/en/sns-auto-post-monorepo.md',
   },
   {
     slug: 'portfolio-with-ai',
@@ -100,6 +104,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Structuring bank FX reports with LLMs for daily signal generation. 6 prompts, 3 time-zone pipelines, and caching strategy.',
     },
     url: '/portfolio/blog/llm-fx-pipeline.md',
+    enUrl: '/portfolio/blog/en/llm-fx-pipeline.md',
   },
   {
     slug: 'notion-journal-automation',
@@ -114,6 +119,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Voice input → ChatGPT → Notion auto-append in 350 lines of shell scripts. 3-layer script design for maintainability.',
     },
     url: '/portfolio/blog/notion-journal-automation.md',
+    enUrl: '/portfolio/blog/en/notion-journal-automation.md',
   },
   {
     slug: 'usereducer-game-state',
@@ -128,5 +134,6 @@ export const blogPosts: BlogPost[] = [
       en: '13 action types, 408 lines of pure logic, animation phase control — designing game state with useReducer.',
     },
     url: '/portfolio/blog/usereducer-game-state.md',
+    enUrl: '/portfolio/blog/en/usereducer-game-state.md',
   },
 ]
