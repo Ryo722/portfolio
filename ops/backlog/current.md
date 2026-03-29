@@ -1,13 +1,21 @@
-# Current Sprint — 最終改善5項目（2026-03-29 5th）
+# Current — 2026-03-29 最終状態
 
-## 完了
-- [x] ESLint: consistent-type-imports + no-unused-vars error化
-- [x] Lighthouse CI: deploy後に自動計測（continue-on-error）
-- [x] GitHub統計: github-readme-stats 画像埋め込み（About セクション）
-- [x] ブログ英語本文: en/ディレクトリ + BlogArticle言語切替 + 2本翻訳
-- [x] URL構造: ADR-003 設計文書
+## 今セッションで完了した全タスク
+- [x] ポートフォリオMVP構築 → デザイン改善 → 多言語 → ダークモード
+- [x] プロジェクト9件 + ブログ10本（日英両対応）
+- [x] ポートフォリオOS（5ゲート、エージェント2、スキル12、コマンド9）
+- [x] ブログ制作OS + セキュリティレビュー
+- [x] 品質基盤（Vitest 22テスト、CI lint+test+build+Lighthouse）
+- [x] 運用基盤（backlog/roadmap/completed/devlog/quality-metrics）
+- [x] UX改善（Notes折りたたみ、シンタックスハイライト、404、README）
+- [x] フォールバック表示改善 + ESLint strict化
+- [x] ブログ英語本文 全9本翻訳完了
+- [x] GitHub Stats → 外部API不安定で削除判断
+- [x] OSSコントリビュート（4リポジトリ精査、6PR提出）
+- [x] ブログ記事#10（OSSコントリビュート記事）
 
-## 残り backlog
-- [ ] BL-B: 残り6件の実スクリーンショット（環境依存で起動タイミング待ち）
-- [ ] BL-D: URL構造実装（15記事到達時）
-- [ ] ブログ英語本文: 残り7本の翻訳（新記事追加時に随時）
+## 残りbacklog（条件付き・運用で回すもの）
+- [ ] BL-B: 残り6件の実スクリーンショット（各プロジェクト起動時に随時）
+- [ ] BL-D: URL構造実装（記事15本到達時、ADR-003で設計済み）
+- [ ] DuelMasters Playsデモ動画作成（版権考慮、限定公開）
+- [ ] OSSコントリビュートPRのマージ追跡 → ブログ記事に結果追記
