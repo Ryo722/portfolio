@@ -14,6 +14,7 @@ export const blogPosts: BlogPost[] = [
       en: 'A pure-functional game engine with 152 modules and 1,065+ tests, co-developed with AI. Logic with AI, UI driven by human — a story of role division.',
     },
     url: '/portfolio/blog/building-game-engine.md',
+    enUrl: '/portfolio/blog/en/building-game-engine.md',
   },
   {
     slug: 'multi-agent-orchestration',
@@ -84,6 +85,7 @@ export const blogPosts: BlogPost[] = [
       en: 'Full process of building a portfolio with AI — research, design, implementation, deploy, and OS-ification. The role division between human and AI.',
     },
     url: '/portfolio/blog/portfolio-with-ai.md',
+    enUrl: '/portfolio/blog/en/portfolio-with-ai.md',
   },
   {
     slug: 'llm-fx-pipeline',

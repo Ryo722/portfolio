@@ -42,4 +42,5 @@ export type BlogPost = {
   tags: string[]
   excerpt: LocalizedText
   url?: string
+  enUrl?: string
 }

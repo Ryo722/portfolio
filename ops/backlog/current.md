@@ -1,18 +1,13 @@
-# Current Sprint — カード表示改善 + ESLint（2026-03-29 4th）
+# Current Sprint — 最終改善5項目（2026-03-29 5th）
 
 ## 完了
-- [x] BL-B（部分）: フォールバック表示改善（カテゴリ + 技術スタック3つ表示）
-- [x] BL-B: 不足カテゴリのグラデーション・アイコンマップ追加
-- [x] BL-A（部分）: ESLint `no-console: warn` 追加
+- [x] ESLint: consistent-type-imports + no-unused-vars error化
+- [x] Lighthouse CI: deploy後に自動計測（continue-on-error）
+- [x] GitHub統計: github-readme-stats 画像埋め込み（About セクション）
+- [x] ブログ英語本文: en/ディレクトリ + BlogArticle言語切替 + 2本翻訳
+- [x] URL構造: ADR-003 設計文書
 
-## BL-B 進捗
-- 画像あり: 3/9
-- 画像なし: 6/9 → フォールバック表示改善済み
-- 実画像追加: 各プロジェクト起動時に随時対応
-
-## 未着手（→ roadmap.md）
-- [ ] BL-B: 残り6件の実画像
-- [ ] BL-A: strict ルール導入
-- [ ] BL-D: URL構造（15記事到達時）
-- [ ] BL-F: グリッド改善（フォールバック改善で部分解消）
-- [ ] BL-H: GitHub統計
+## 残り backlog
+- [ ] BL-B: 残り6件の実スクリーンショット（環境依存で起動タイミング待ち）
+- [ ] BL-D: URL構造実装（15記事到達時）
+- [ ] ブログ英語本文: 残り7本の翻訳（新記事追加時に随時）

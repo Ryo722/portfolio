@@ -20,11 +20,16 @@ export function BlogArticle({ post, onClose }: { post: BlogPost; onClose: () => 
     })
   }, [])
 
-  // 記事本文を取得
+  // 記事本文を取得（英語版があれば優先、なければ日本語にフォールバック）
   useEffect(() => {
-    if (!post.url) return
+    const primaryUrl = (lang === 'en' && post.enUrl) ? post.enUrl : post.url
+    if (!primaryUrl) return
     setLoading(true)
-    fetch(post.url)
+    fetch(primaryUrl)
+      .then((res) => {
+        if (!res.ok && lang === 'en' && post.url) return fetch(post.url)
+        return res
+      })
       .then((res) => res.text())
       .then((text) => {
         const body = text.replace(/^---[\s\S]*?---\s*/, '')
@@ -35,7 +40,7 @@ export function BlogArticle({ post, onClose }: { post: BlogPost; onClose: () => 
         setContent(null)
         setLoading(false)
       })
-  }, [post.url])
+  }, [post.url, post.enUrl, lang])
 
   // スクロール位置をリセット
   useEffect(() => {

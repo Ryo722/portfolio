@@ -40,3 +40,24 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  lighthouse:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: https://ryo722.github.io/portfolio/
+          temporaryPublicStorage: true
+          runs: 1
+      - name: Display scores
+        if: always()
+        run: |
+          echo "Lighthouse results uploaded to temporary public storage."
+          echo "Check the Lighthouse CI Action output above for the report URL."
