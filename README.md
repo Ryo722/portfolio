@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# Ryo722 Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AIと一緒に、ゲームエンジンからインフラまでつくる開発者のポートフォリオサイト。
 
-Currently, two official plugins are available:
+**公開URL**: https://ryo722.github.io/portfolio/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 主な機能
 
-## React Compiler
+- プロジェクト一覧（9件、展開式詳細）
+- 技術ブログ（9記事、Markdownレンダリング）
+- スキルセット（8カテゴリ）
+- 日本語 / 英語切替
+- ダークモード / ライトモード
+- レスポンシブ対応
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 技術スタック
 
-## Expanding the ESLint configuration
+- **フレームワーク**: Vite + React 19 + TypeScript
+- **スタイリング**: Tailwind CSS 4 (`@tailwindcss/vite`)
+- **ブログ**: react-markdown + remark-gfm + rehype-highlight
+- **テスト**: Vitest（データ整合性テスト20件）
+- **デプロイ**: GitHub Pages + GitHub Actions
+- **分析**: Plausible Analytics
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## セットアップ
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone git@github.com:Ryo722/portfolio.git
+cd portfolio
+npm ci
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 開発コマンド
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev       # 開発サーバー起動
+npm run build     # 本番ビルド（TypeScript型チェック含む）
+npm test          # データ整合性テスト実行
+npm run lint      # ESLint 実行
+npm run preview   # ビルド結果のプレビュー
 ```
+
+## デプロイ
+
+`main` ブランチへの push で GitHub Actions が自動デプロイ。
+
+```
+push → npm test → npm run build → GitHub Pages
+```
+
+## ディレクトリ構成
+
+```
+├── CLAUDE.md                # プロジェクトポリシー（実行ルール・品質モデル）
+├── .claude/
+│   ├── agents/              # エージェント定義（2種）
+│   ├── skills/              # スキル定義（12種）
+│   └── commands/            # コマンド定義（9種）
+├── src/
+│   ├── components/          # Reactコンポーネント
+│   ├── data/                # 静的データ（projects, blog, skills, profile）
+│   ├── hooks/               # カスタムフック（言語, テーマ, IntersectionObserver）
+│   └── types/               # 型定義
+├── public/
+│   ├── blog/                # ブログ記事（Markdown）
+│   └── images/projects/     # プロジェクトスクリーンショット
+├── docs/
+│   ├── architecture/        # ゲートモデル, ブランドブック
+│   ├── workflows/           # デプロイ, コンテンツ更新, ブログ制作
+│   ├── adr/                 # Architecture Decision Records
+│   └── templates/           # チェックリスト, ブリーフ
+├── ops/
+│   ├── backlog/             # タスク管理, 改善計画
+│   ├── decisions/           # 意思決定ログ
+│   ├── logs/devlog/         # 日次開発記録
+│   └── reports/             # 品質メトリクス, 週次レポート
+└── scripts/                 # Lighthouse計測等
+```
+
+## ポートフォリオOS
+
+このリポジトリは単なるフロントエンドではなく、コンテンツ管理・品質保証・ブログ制作を統合した**運営OS**として設計されています。
+
+- **5ゲート品質モデル**: Security / Performance / Accessibility / Brand / Deploy Readiness
+- **エージェント**: project-lead, blog-editor
+- **スキル**: code-quality, deploy-checker, brand-guard, blog-writer, blog-reviewer 他12種
+- **コマンド**: `/add-project`, `/deploy`, `/write-blog`, `/quality-check` 他9種
+
+詳細は `CLAUDE.md` を参照。
+
+## ライセンス
+
+Private

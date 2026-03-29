@@ -7,15 +7,16 @@ export function BlogArticle({ post, onClose }: { post: BlogPost; onClose: () => 
   const [content, setContent] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [mdModules, setMdModules] = useState<{ Markdown: any; gfm: any } | null>(null)
+  const [mdModules, setMdModules] = useState<{ Markdown: any; gfm: any; rehypeHighlight: any } | null>(null)
 
   // Markdown ライブラリを遅延ロード
   useEffect(() => {
     Promise.all([
       import('react-markdown'),
       import('remark-gfm'),
-    ]).then(([md, gfm]) => {
-      setMdModules({ Markdown: md.default, gfm: gfm.default })
+      import('rehype-highlight'),
+    ]).then(([md, gfm, highlight]) => {
+      setMdModules({ Markdown: md.default, gfm: gfm.default, rehypeHighlight: highlight.default })
     })
   }, [])
 
@@ -100,7 +101,7 @@ export function BlogArticle({ post, onClose }: { post: BlogPost; onClose: () => 
             prose-hr:border-slate-200 dark:prose-hr:border-slate-800
             prose-table:text-sm
           ">
-            <mdModules.Markdown remarkPlugins={[mdModules.gfm]}>{content}</mdModules.Markdown>
+            <mdModules.Markdown remarkPlugins={[mdModules.gfm]} rehypePlugins={[mdModules.rehypeHighlight]}>{content}</mdModules.Markdown>
           </div>
         )}
 

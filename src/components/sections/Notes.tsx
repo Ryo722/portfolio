@@ -7,13 +7,19 @@ import { FadeInOnScroll } from '../common/FadeInOnScroll'
 import { SectionHeading } from '../ui/SectionHeading'
 import { BlogArticle } from '../ui/BlogArticle'
 
+const INITIAL_COUNT = 3
+
 export function Notes() {
   const { lang } = useLang()
   const [activePost, setActivePost] = useState<BlogPost | null>(null)
+  const [showAll, setShowAll] = useState(false)
 
   if (activePost) {
     return <BlogArticle post={activePost} onClose={() => setActivePost(null)} />
   }
+
+  const visiblePosts = showAll ? blogPosts : blogPosts.slice(0, INITIAL_COUNT)
+  const hasMore = blogPosts.length > INITIAL_COUNT
 
   return (
     <section id="notes" className="py-20 px-6">
@@ -23,7 +29,7 @@ export function Notes() {
           {ui('notesDescription', lang)}
         </p>
         <div className="max-w-3xl mx-auto space-y-4">
-          {blogPosts.map((post) => (
+          {visiblePosts.map((post) => (
             <article
               key={post.slug}
               className="bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-sky-400/50 transition-colors cursor-pointer"
@@ -62,6 +68,24 @@ export function Notes() {
               )}
             </article>
           ))}
+
+          {hasMore && !showAll && (
+            <button
+              onClick={() => setShowAll(true)}
+              className="w-full py-3 text-sm text-slate-500 dark:text-slate-400 hover:text-sky-500 border border-slate-200 dark:border-slate-700 hover:border-sky-400/50 rounded-xl transition-colors cursor-pointer"
+            >
+              {lang === 'ja' ? `他の記事を見る（${blogPosts.length - INITIAL_COUNT}件）` : `Show more (${blogPosts.length - INITIAL_COUNT} articles)`}
+            </button>
+          )}
+
+          {showAll && hasMore && (
+            <button
+              onClick={() => setShowAll(false)}
+              className="w-full py-3 text-sm text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors cursor-pointer"
+            >
+              {lang === 'ja' ? '閉じる' : 'Show less'}
+            </button>
+          )}
         </div>
       </FadeInOnScroll>
     </section>

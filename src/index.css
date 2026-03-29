@@ -17,6 +17,25 @@ body {
   margin: 0;
 }
 
+/* highlight.js syntax highlighting — dark/light compatible */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+.hljs-keyword,
+.hljs-selector-tag { color: #c084fc; }
+.hljs-string,
+.hljs-attr { color: #34d399; }
+.hljs-number,
+.hljs-literal { color: #f59e0b; }
+.hljs-comment { color: #64748b; font-style: italic; }
+.hljs-built_in,
+.hljs-type { color: #38bdf8; }
+.hljs-title,
+.hljs-function { color: #818cf8; }
+.hljs-params { color: #fb923c; }
+.hljs-meta { color: #94a3b8; }
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
