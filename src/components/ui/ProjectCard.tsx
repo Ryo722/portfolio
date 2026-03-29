@@ -11,6 +11,9 @@ const categoryGradients: Record<string, string> = {
   'AI × 金融': 'from-amber-600/20 to-orange-600/20',
   'AI × 自動化': 'from-violet-600/20 to-fuchsia-600/20',
   'インフラ / DevOps': 'from-slate-600/20 to-zinc-600/20',
+  '自動化 / フルスタック': 'from-cyan-600/20 to-blue-600/20',
+  'ゲームツール': 'from-rose-600/20 to-pink-600/20',
+  '自動化 / CLI': 'from-green-600/20 to-emerald-600/20',
 }
 
 const categoryIcons: Record<string, string> = {
@@ -20,6 +23,9 @@ const categoryIcons: Record<string, string> = {
   'AI × 金融': '📊',
   'AI × 自動化': '🤖',
   'インフラ / DevOps': '🖥',
+  '自動化 / フルスタック': '⚡',
+  'ゲームツール': '🎯',
+  '自動化 / CLI': '⌨',
 }
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -34,10 +40,17 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.image ? (
           <img src={project.image} alt={t(project.name, lang)} className="w-full h-full object-cover" width={800} height={500} loading="lazy" />
         ) : (
-          <>
-            <span className="text-4xl" role="img" aria-hidden="true">{icon}</span>
-            <span className="text-xs text-slate-500 font-mono">{project.category}</span>
-          </>
+          <div className="flex flex-col items-center justify-center gap-2 px-4 text-center">
+            <span className="text-3xl" role="img" aria-hidden="true">{icon}</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">{project.category}</span>
+            <div className="flex flex-wrap justify-center gap-1 mt-1">
+              {project.techStack.slice(0, 3).map((tech) => (
+                <span key={tech} className="text-[10px] px-1.5 py-0.5 font-mono bg-white/30 dark:bg-slate-900/40 text-slate-600 dark:text-slate-400 rounded">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
         )}
         {project.featured && (
           <span className="absolute top-3 right-3 text-xs px-2 py-0.5 bg-sky-400/20 text-sky-400 rounded-full border border-sky-400/30 backdrop-blur-sm">

@@ -1,22 +1,18 @@
-# Current Sprint — 運用基盤整備（2026-03-29 3rd）
-
-## 目的
-継続運用しやすく、品質劣化を検知しやすく、次の改善に備えやすい状態にする。
+# Current Sprint — カード表示改善 + ESLint（2026-03-29 4th）
 
 ## 完了
-- [x] 完了済みスプリントの記録（completed.md）
-- [x] backlog全項目の詳細化（roadmap.md）
-- [x] 品質確認手順書（docs/quality-checks.md）
-- [x] portfolio-source扱いの明文化（docs/portfolio-source-policy.md）
-- [x] `npm run check` スクリプト追加
-- [x] CI に lint 追加
-- [x] quality-metrics 更新
-- [x] リリースレポートテンプレート作成
+- [x] BL-B（部分）: フォールバック表示改善（カテゴリ + 技術スタック3つ表示）
+- [x] BL-B: 不足カテゴリのグラデーション・アイコンマップ追加
+- [x] BL-A（部分）: ESLint `no-console: warn` 追加
 
-## 未着手（→ roadmap.md に詳細）
-- [ ] BL-A: ESLint強化
-- [ ] BL-B: スクリーンショット整備
-- [ ] BL-C: portfolio-source最新化
-- [ ] BL-D: URL構造改善
-- [ ] BL-F: プロジェクトグリッド改善
-- [ ] BL-H: GitHub統計表示
+## BL-B 進捗
+- 画像あり: 3/9
+- 画像なし: 6/9 → フォールバック表示改善済み
+- 実画像追加: 各プロジェクト起動時に随時対応
+
+## 未着手（→ roadmap.md）
+- [ ] BL-B: 残り6件の実画像
+- [ ] BL-A: strict ルール導入
+- [ ] BL-D: URL構造（15記事到達時）
+- [ ] BL-F: グリッド改善（フォールバック改善で部分解消）
+- [ ] BL-H: GitHub統計

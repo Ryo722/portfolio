@@ -1,5 +1,21 @@
 # Completed Sprints
 
+## Sprint 2026-03-29 (4th) — カード表示改善 + ESLint小強化
+- [x] BL-B（部分）: フォールバック表示改善（アイコン + カテゴリ + 技術スタック3つ）
+- [x] BL-B: 不足カテゴリのグラデーション・アイコンマップ追加（3カテゴリ）
+- [x] BL-A（部分）: ESLint `no-console: warn` 追加
+- [x] backlog/roadmap/completed/devlog 更新
+
+## Sprint 2026-03-29 (3rd) — 運用基盤整備
+- [x] backlog詳細化（roadmap.md）
+- [x] completed.md 作成
+- [x] docs/quality-checks.md 作成
+- [x] docs/portfolio-source-policy.md 作成
+- [x] npm run check 追加
+- [x] CI lint 追加
+- [x] quality-metrics 更新
+- [x] release-report-template 作成
+
 ## Sprint 2026-03-29 (2nd) — UX改善
 - [x] J: README全面書替
 - [x] I: 404ページ追加
