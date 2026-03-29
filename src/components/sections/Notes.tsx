@@ -14,12 +14,14 @@ export function Notes() {
   const [activePost, setActivePost] = useState<BlogPost | null>(null)
   const [showAll, setShowAll] = useState(false)
 
+  const sortedPosts = [...blogPosts].sort((a, b) => b.date.localeCompare(a.date))
+
   if (activePost) {
     return <BlogArticle post={activePost} onClose={() => setActivePost(null)} />
   }
 
-  const visiblePosts = showAll ? blogPosts : blogPosts.slice(0, INITIAL_COUNT)
-  const hasMore = blogPosts.length > INITIAL_COUNT
+  const visiblePosts = showAll ? sortedPosts : sortedPosts.slice(0, INITIAL_COUNT)
+  const hasMore = sortedPosts.length > INITIAL_COUNT
 
   return (
     <section id="notes" className="py-20 px-6">
@@ -74,7 +76,7 @@ export function Notes() {
               onClick={() => setShowAll(true)}
               className="w-full py-3 text-sm text-slate-500 dark:text-slate-400 hover:text-sky-500 border border-slate-200 dark:border-slate-700 hover:border-sky-400/50 rounded-xl transition-colors cursor-pointer"
             >
-              {lang === 'ja' ? `他の記事を見る（${blogPosts.length - INITIAL_COUNT}件）` : `Show more (${blogPosts.length - INITIAL_COUNT} articles)`}
+              {lang === 'ja' ? `他の記事を見る（${sortedPosts.length - INITIAL_COUNT}件）` : `Show more (${sortedPosts.length - INITIAL_COUNT} articles)`}
             </button>
           )}
 
