@@ -151,4 +151,34 @@ export const blogPosts: BlogPost[] = [
     url: '/portfolio/blog/oss-contribution-process.md',
     enUrl: '/portfolio/blog/en/oss-contribution-process.md',
   },
+  {
+    slug: 'cafenavi-coffee-diagnosis',
+    title: {
+      ja: 'コサイン類似度で「あなたに合うコーヒー」を提案するアプリを作った',
+      en: 'Building a coffee recommender app with cosine similarity matching',
+    },
+    date: '2026-03-30',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vitest', 'Playwright'],
+    excerpt: {
+      ja: '25種のコーヒー豆を10軸のフレーバースコアで定量化し、コサイン類似度でマッチング。診断→比較→統計まで、フロントエンドだけで完結するアプリをAIと作った記録。',
+      en: '25 coffee beans quantified across 10 flavor axes, matched via cosine similarity. A fully client-side app with diagnosis, comparison, and stats — built with AI.',
+    },
+    url: '/portfolio/blog/cafenavi-coffee-diagnosis.md',
+    enUrl: '/portfolio/blog/en/cafenavi-coffee-diagnosis.md',
+  },
+  {
+    slug: 'easypngtuber-contribution',
+    title: {
+      ja: 'PNGTuberツールに3つの改善をコントリビュートした',
+      en: 'Contributing 3 improvements to a PNGTuber tool',
+    },
+    date: '2026-03-30',
+    tags: ['OSS', 'Python', 'PySide6', 'OpenCV', 'Performance'],
+    excerpt: {
+      ja: 'EasyPNGTuberに依存関係の最適化・macOS HiDPI対応・位置合わせの並列化を3ブランチに分けてコントリビュート。マルチプロセッシングで2-3倍の高速化を実現。',
+      en: 'Three contributions to EasyPNGTuber: dependency optimization, macOS HiDPI support, and parallelized alignment with multiprocessing for 2-3x speedup.',
+    },
+    url: '/portfolio/blog/easypngtuber-contribution.md',
+    enUrl: '/portfolio/blog/en/easypngtuber-contribution.md',
+  },
 ]
