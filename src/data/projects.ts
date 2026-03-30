@@ -244,7 +244,7 @@ export const projects: Project[] = [
     ],
     githubUrl: 'https://github.com/Ryo722/CafeNavi',
     demoUrl: 'https://ryo722.github.io/CafeNavi/',
-    image: null,
+    image: '/portfolio/images/projects/cafenavi.png',
     visibility: 'public',
     scale: {
       'コミット数': '29',
