@@ -221,4 +221,36 @@ export const projects: Project[] = [
     image: null,
     visibility: 'private',
   },
+  {
+    slug: 'cafenavi',
+    name: { ja: 'CafeNavi — コーヒー診断アプリ', en: 'CafeNavi — Coffee Diagnosis App' },
+    category: 'Webアプリ / ツール',
+    summary: {
+      ja: '25種のコーヒー豆からあなたに合う1杯を診断',
+      en: 'Find your perfect coffee from 25 bean profiles',
+    },
+    description: {
+      ja: `味の好みやお菓子の好み、飲用シーンに関する質問に答えるだけで、25種のコーヒー豆からベストマッチを提案するパーソナライズ診断アプリ。コサイン類似度によるマッチング、レーダーチャートでの豆比較、診断履歴の統計ダッシュボードを搭載。初心者モード（10問）と中級者モード（20問）に対応。`,
+      en: `A personalized coffee diagnosis app that recommends the best match from 25 bean profiles based on your taste preferences, snack pairings, and drinking scenarios. Features cosine similarity matching, radar chart comparisons, and a statistics dashboard for diagnosis history. Supports beginner (10 questions) and intermediate (20 questions) modes.`,
+    },
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vitest', 'Playwright', 'GitHub Pages'],
+    highlights: [
+      { ja: 'コサイン類似度による10軸フレーバーマッチング', en: 'Cosine similarity matching across 10 flavor axes' },
+      { ja: '25種のコーヒー豆プロファイル（産地・焙煎度・フレーバー）', en: '25 bean profiles with origin, roast level, and flavor data' },
+      { ja: 'レーダーチャートによる豆の比較機能', en: 'Bean comparison via radar charts' },
+      { ja: '診断履歴の統計ダッシュボード（8味覚タイプ分類）', en: 'Stats dashboard with 8 taste-type classification' },
+      { ja: 'Vitest 68テスト + Playwright E2E 14テスト', en: '68 unit tests (Vitest) + 14 E2E tests (Playwright)' },
+      { ja: '多言語対応（日本語・英語）、ダーク/ライトテーマ', en: 'Bilingual (Japanese/English), dark/light theme' },
+    ],
+    githubUrl: 'https://github.com/Ryo722/CafeNavi',
+    demoUrl: 'https://ryo722.github.io/CafeNavi/',
+    image: null,
+    visibility: 'public',
+    scale: {
+      'コミット数': '29',
+      'ソースファイル': '60',
+      'コード行数': '9,191',
+      'テスト数': '82（Unit 68 + E2E 14）',
+    },
+  },
 ]
