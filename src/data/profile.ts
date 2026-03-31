@@ -19,5 +19,5 @@ My flagship project is an online battle platform for the Duel Masters TCG. At it
 Beyond that, I build systems like an LLM-powered FX signal generator that structures Japanese bank reports, and multi-agent operational OS powered by Claude Code — expanding the practice of AI × development.`,
   },
   githubUrl: 'https://github.com/Ryo722',
-  email: '793hanachan722@gmail.com',
+  email: 'ryo722.m0kur0@gmail.com',
 }
