@@ -36,7 +36,7 @@ export function Header() {
           <button
             onClick={toggleTheme}
             className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 transition-colors cursor-pointer"
-            aria-label="テーマ切替"
+            aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}
           >
             {theme === 'dark' ? (
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -63,7 +63,7 @@ export function Header() {
           <button
             onClick={toggleTheme}
             className="p-1.5 text-slate-500 dark:text-slate-400 cursor-pointer"
-            aria-label="テーマ切替"
+            aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}
           >
             {theme === 'dark' ? (
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -84,7 +84,7 @@ export function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex flex-col gap-1.5 p-2 cursor-pointer"
-            aria-label="メニューを開く"
+            aria-label={lang === 'ja' ? 'メニューを開く' : 'Open menu'}
             aria-expanded={isOpen}
           >
             <span className={`block w-5 h-0.5 bg-slate-600 dark:bg-slate-300 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />

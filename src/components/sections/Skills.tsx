@@ -14,7 +14,12 @@ export function Skills() {
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
           {skills.map((category) => (
             <div key={category.name.ja} className="bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-5">
-              <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3">{t(category.name, lang)}</h3>
+              <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">{t(category.name, lang)}</h3>
+              {category.evidence && (
+                <p className="text-xs text-sky-500 dark:text-sky-400 mb-3 leading-relaxed">
+                  {t(category.evidence, lang)}
+                </p>
+              )}
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <SkillBadge key={skill} name={skill} />

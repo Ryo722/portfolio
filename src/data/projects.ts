@@ -33,6 +33,39 @@ export const projects: Project[] = [
       'カード定義': '11,000+',
     },
     featured: true,
+    designDecisions: [
+      {
+        title: {
+          ja: '純粋関数型エンジン設計',
+          en: 'Pure-functional engine design',
+        },
+        reasoning: {
+          ja: 'テスタビリティ・リプレイ可能性・フロント/バック共有の3要件を同時に満たすため、副作用のない純粋関数を唯一のエントリポイント（processCommand）とした。結果としてテストが自然に積み上がり、SeededRNGと組み合わせた決定論的リプレイも実現。',
+          en: 'Chose pure functions with a single entry point (processCommand) to satisfy testability, replayability, and frontend/backend code sharing simultaneously. This naturally accumulated tests and enabled deterministic replay with SeededRNG.',
+        },
+      },
+      {
+        title: {
+          ja: 'カードビルダーパターンによる11,000枚の汎用処理',
+          en: 'Card builder pattern for 11,000+ cards',
+        },
+        reasoning: {
+          ja: '個別カード対応ではなく、6種のカードビルダー × キーワード能力モジュール × 効果レジストリの仕組みで汎用処理。カードは定義データとして扱い、エンジンは定義を解釈する側に徹する設計。',
+          en: 'Instead of per-card implementation, used 6 card builders × keyword ability modules × effect registry for generic processing. Cards are treated as definition data; the engine interprets definitions.',
+        },
+      },
+      {
+        title: {
+          ja: '置換効果の一元管理（総合ルール609条準拠）',
+          en: 'Centralized replacement effects (Rule 609 compliant)',
+        },
+        reasoning: {
+          ja: 'カードゲームエンジンで最も複雑な「破壊される代わりに」等の置換効果を replacementEffects.ts で一元管理。優先順位解決をルールブックに忠実に実装し、カード間の予期しないインタラクションを型安全に処理。',
+          en: 'Centralized the most complex part of card game engines — replacement effects like "instead of being destroyed" — in replacementEffects.ts. Priority resolution faithful to the rulebook, handling unexpected card interactions type-safely.',
+        },
+      },
+    ],
+    relatedNotes: ['building-game-engine'],
   },
   {
     slug: 'dm-card-generator',
@@ -252,5 +285,29 @@ export const projects: Project[] = [
       'コード行数': '9,191',
       'テスト数': '82（Unit 68 + E2E 14）',
     },
+    featured: true,
+    designDecisions: [
+      {
+        title: {
+          ja: 'コサイン類似度による味覚マッチング',
+          en: 'Cosine similarity for taste matching',
+        },
+        reasoning: {
+          ja: '10軸のフレーバースコアで豆と回答をベクトル化し、コサイン類似度で距離を計算。単純な重み付きスコアより、味覚の「方向性」を捉えられる。',
+          en: 'Vectorized beans and answers across 10 flavor axes, using cosine similarity for distance. Captures taste "direction" better than simple weighted scores.',
+        },
+      },
+      {
+        title: {
+          ja: 'フロントエンド完結アーキテクチャ',
+          en: 'Frontend-only architecture',
+        },
+        reasoning: {
+          ja: '診断ロジック・統計・履歴を全てクライアントサイドで完結。GitHub Pagesでホスティング可能にし、バックエンドコストをゼロにした。localStorageで履歴永続化。',
+          en: 'All diagnosis logic, statistics, and history run client-side. Deployable on GitHub Pages with zero backend cost. History persisted via localStorage.',
+        },
+      },
+    ],
+    relatedNotes: ['cafenavi-coffee-diagnosis'],
   },
 ]

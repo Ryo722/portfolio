@@ -3,20 +3,20 @@ import type { Profile } from '../types'
 export const profile: Profile = {
   name: 'Ryo722',
   tagline: {
-    ja: 'AIと一緒に、ゲームエンジンからインフラまでつくる開発者。',
-    en: 'Building from game engines to infrastructure — with AI as my co-developer.',
+    ja: 'React / TypeScript を軸に、設計・テスト・運用まで一気通貫で構築するフルスタック開発者。',
+    en: 'Full-stack developer building end-to-end with React / TypeScript — from design through testing to production.',
   },
   about: {
-    ja: `「自分が欲しいもの」を起点に、AIをパートナーとして設計から運用まで手がける個人開発者です。
+    ja: `React / TypeScript によるフロントエンド設計を主軸に、バックエンド・インフラ・AI活用までカバーするフルスタック開発者です。純粋関数型ゲームエンジン（1,565テスト）やLLMパイプラインなど、複雑なドメインロジックの設計・実装に強みがあります。
 
-代表作は、デュエル・マスターズのオンライン対戦プラットフォーム。11,000枚超のカードを処理する純粋関数型ゲームエンジン（152モジュール・1,565テスト）を核に、フロントエンドからリアルタイム通信、自宅サーバーへのデプロイまでフルスタックで構築しました。
+テスト駆動・型安全・CI/CD を当たり前の基盤として、動くだけでなく検証可能・保守可能なコードを書きます。個人プロジェクトでも TDD、構造化テスト、自動デプロイを徹底しています。
 
-ほかにも、邦銀レポートをLLMで構造化してFXシグナルを自動生成するシステムや、Claude Codeによるマルチエージェント運営OSなど、AI × 開発の実践を広げています。`,
-    en: `A developer who builds what I want to use — with AI as my partner, from design through production.
+フロントエンドからリアルタイム通信、ゼロトラストインフラ、AIエージェント設計まで——技術選定と設計判断を自分で行い、実装・運用まで一気通貫で遂行できます。`,
+    en: `A full-stack developer focused on frontend design with React / TypeScript, covering backend, infrastructure, and AI integration. I specialize in designing and implementing complex domain logic — from a pure-functional game engine (1,565 tests) to LLM pipelines.
 
-My flagship project is an online battle platform for the Duel Masters TCG. At its core is a pure-functional game engine (152 modules, 1,565 tests) that processes 11,000+ cards, built full-stack from frontend to real-time communication to self-hosted deployment.
+I build code that is not just functional but verifiable and maintainable, with TDD, type safety, and CI/CD as standard foundations. Even in personal projects, I enforce structured testing and automated deployment.
 
-Beyond that, I build systems like an LLM-powered FX signal generator that structures Japanese bank reports, and multi-agent operational OS powered by Claude Code — expanding the practice of AI × development.`,
+From frontend to real-time communication, zero-trust infrastructure, and AI agent design — I make technology choices, design decisions, and execute end-to-end through production.`,
   },
   githubUrl: 'https://github.com/Ryo722',
   email: 'ryo722.m0kur0@gmail.com',

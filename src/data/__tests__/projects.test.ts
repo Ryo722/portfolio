@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { projects } from '../projects'
+import { profile } from '../profile'
+import { blogPosts } from '../blog'
+import { skills } from '../skills'
 import { existsSync } from 'fs'
 import { resolve } from 'path'
 
@@ -46,6 +49,49 @@ describe('projects データ整合性', () => {
   it('slug が URL-safe な文字列である', () => {
     for (const p of projects) {
       expect(p.slug).toMatch(/^[a-z0-9-]+$/)
+    }
+  })
+
+  it('profile と projects の代表実績数値が一致する', () => {
+    const dmp = projects.find((p) => p.slug === 'duel-masters-plays')
+    if (!dmp) return
+
+    // profile.about に含まれるテスト数がprojectsのscaleと一致する
+    const scaleTestCount = dmp.scale?.['テスト数']
+    if (scaleTestCount) {
+      // '1,565+' → '1,565' (表示形式のまま比較)
+      const displayNum = scaleTestCount.replace(/\+$/, '')
+      expect(
+        profile.about.ja.includes(displayNum),
+        `profile.about.ja にテスト数 "${displayNum}" が含まれていない (scale: ${scaleTestCount})`,
+      ).toBe(true)
+    }
+  })
+
+  it('featured プロジェクトが存在する', () => {
+    const featured = projects.filter((p) => p.featured)
+    expect(featured.length, 'featured プロジェクトが0件').toBeGreaterThan(0)
+  })
+
+  it('relatedNotes が実在するブログ記事の slug を参照している', () => {
+    const blogSlugs = new Set(blogPosts.map((p) => p.slug))
+    for (const p of projects) {
+      if (p.relatedNotes) {
+        for (const slug of p.relatedNotes) {
+          expect(blogSlugs.has(slug), `${p.slug}: relatedNote "${slug}" がブログに存在しない`).toBe(true)
+        }
+      }
+    }
+  })
+
+  it('skills の projectSlugs が実在するプロジェクトの slug を参照している', () => {
+    const projectSlugs = new Set(projects.map((p) => p.slug))
+    for (const cat of skills) {
+      if (cat.projectSlugs) {
+        for (const slug of cat.projectSlugs) {
+          expect(projectSlugs.has(slug), `skill "${cat.name.ja}": projectSlug "${slug}" が存在しない`).toBe(true)
+        }
+      }
     }
   })
 })

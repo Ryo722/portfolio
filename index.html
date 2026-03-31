@@ -7,16 +7,32 @@
     <meta name="theme-color" content="#0f172a" />
     <title>Ryo722 — Portfolio</title>
     <meta name="description" content="Ryo722のポートフォリオサイト。Web開発、ゲームエンジン、AI活用、自動化。" />
+    <link rel="canonical" href="https://ryo722.github.io/portfolio/" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ryo722 Portfolio",
+      "url": "https://ryo722.github.io/portfolio/",
+      "author": {
+        "@type": "Person",
+        "name": "Ryo722",
+        "url": "https://github.com/Ryo722",
+        "jobTitle": "Full-stack Developer",
+        "knowsAbout": ["React", "TypeScript", "Game Engine Design", "AI/LLM", "Infrastructure"]
+      }
+    }
+    </script>
     <!-- OGP -->
     <meta property="og:title" content="Ryo722 — Portfolio" />
-    <meta property="og:description" content="AIと一緒に、ゲームエンジンからインフラまでつくる開発者。" />
+    <meta property="og:description" content="React / TypeScript を軸に、設計・テスト・運用まで一気通貫で構築するフルスタック開発者。" />
     <meta property="og:image" content="https://ryo722.github.io/portfolio/og-image.jpg" />
     <meta property="og:url" content="https://ryo722.github.io/portfolio/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ryo722 — Portfolio" />
-    <meta name="twitter:description" content="AIと一緒に、ゲームエンジンからインフラまでつくる開発者。" />
+    <meta name="twitter:description" content="React / TypeScript を軸に、設計・テスト・運用まで一気通貫で構築するフルスタック開発者。" />
     <meta name="twitter:image" content="https://ryo722.github.io/portfolio/og-image.jpg" />
     <!-- Analytics (Plausible — privacy-friendly, no cookies) -->
     <script defer data-domain="ryo722.github.io" src="https://plausible.io/js/script.js"></script>
@@ -24,6 +40,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <script>
+      // 初回描画ちらつき防止: Reactハイドレーション前にテーマと言語を適用
+      (function() {
+        var theme = localStorage.getItem('theme') || 'dark';
+        var lang = localStorage.getItem('lang') || 'ja';
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.lang = lang;
+      })();
+    </script>
   </head>
   <body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 antialiased transition-colors duration-300">
     <div id="root"></div>

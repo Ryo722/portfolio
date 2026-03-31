@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import type { BlogPost } from '../../types'
 import { blogPosts } from '../../data/blog'
 import { useLang, t } from '../../hooks/useLang'
@@ -11,13 +11,53 @@ const INITIAL_COUNT = 3
 
 export function Notes() {
   const { lang } = useLang()
-  const [activePost, setActivePost] = useState<BlogPost | null>(null)
+  const [activePost, setActivePost] = useState<BlogPost | null>(() => {
+    // URLパラメータから記事を開く（?note=slug）
+    const params = new URLSearchParams(window.location.search)
+    const noteSlug = params.get('note')
+    if (noteSlug) {
+      const post = blogPosts.find((p) => p.slug === noteSlug)
+      if (post && post.url) return post
+    }
+    return null
+  })
   const [showAll, setShowAll] = useState(false)
 
   const sortedPosts = [...blogPosts].sort((a, b) => b.date.localeCompare(a.date))
 
+  const openPost = useCallback((post: BlogPost) => {
+    setActivePost(post)
+    const url = new URL(window.location.href)
+    url.searchParams.set('note', post.slug)
+    window.history.pushState({}, '', url.toString())
+    document.title = `${t(post.title, lang)} — Ryo722`
+  }, [lang])
+
+  const closePost = useCallback(() => {
+    setActivePost(null)
+    const url = new URL(window.location.href)
+    url.searchParams.delete('note')
+    window.history.pushState({}, '', url.toString())
+    document.title = 'Ryo722 — Portfolio'
+  }, [])
+
+  // ブラウザ戻る/進むに対応
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search)
+      const noteSlug = params.get('note')
+      if (noteSlug) {
+        const post = blogPosts.find((p) => p.slug === noteSlug)
+        if (post && post.url) { setActivePost(post); return }
+      }
+      setActivePost(null)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
   if (activePost) {
-    return <BlogArticle post={activePost} onClose={() => setActivePost(null)} />
+    return <BlogArticle post={activePost} onClose={closePost} />
   }
 
   const visiblePosts = showAll ? sortedPosts : sortedPosts.slice(0, INITIAL_COUNT)
@@ -32,19 +72,7 @@ export function Notes() {
         </p>
         <div className="max-w-3xl mx-auto space-y-4">
           {visiblePosts.map((post) => (
-            <article
-              key={post.slug}
-              className="bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-sky-400/50 transition-colors cursor-pointer"
-              onClick={() => post.url && setActivePost(post)}
-              role={post.url ? 'button' : undefined}
-              tabIndex={post.url ? 0 : undefined}
-              onKeyDown={(e) => {
-                if (post.url && (e.key === 'Enter' || e.key === ' ')) {
-                  e.preventDefault()
-                  setActivePost(post)
-                }
-              }}
-            >
+            <article key={post.slug} className="bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:border-sky-400/50 transition-colors">
               <div className="flex items-center gap-3 mb-2">
                 <time className="text-xs font-mono text-slate-400">{post.date}</time>
                 <div className="flex flex-wrap gap-1.5">
@@ -62,9 +90,12 @@ export function Notes() {
                 {t(post.excerpt, lang)}
               </p>
               {post.url ? (
-                <span className="inline-block mt-3 text-sm text-sky-500 hover:text-sky-400">
+                <button
+                  onClick={() => openPost(post)}
+                  className="inline-block mt-3 text-sm text-sky-500 hover:text-sky-400 cursor-pointer"
+                >
                   {lang === 'ja' ? '続きを読む' : 'Read more'} →
-                </span>
+                </button>
               ) : (
                 <span className="inline-block mt-3 text-xs text-slate-400">{ui('comingSoon', lang)}</span>
               )}

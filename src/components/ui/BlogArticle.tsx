@@ -42,10 +42,15 @@ export function BlogArticle({ post, onClose }: { post: BlogPost; onClose: () => 
       })
   }, [post.url, post.enUrl, lang])
 
-  // スクロール位置をリセット
+  // スクロール位置をリセット + ESCキーでクローズ
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [onClose])
 
   const isReady = !loading && content && mdModules
 
