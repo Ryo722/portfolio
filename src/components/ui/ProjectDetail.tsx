@@ -1,4 +1,5 @@
 import type { Project } from '../../types'
+import { blogPosts } from '../../data/blog'
 import { useLang, t } from '../../hooks/useLang'
 import { ui } from '../../data/ui-text'
 
@@ -32,13 +33,42 @@ export function ProjectDetail({ project }: { project: Project }) {
         ))}
       </ul>
 
-      <div className="flex flex-wrap gap-1.5">
+      {project.designDecisions && project.designDecisions.length > 0 && (
+        <>
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">{ui('designDecisions', lang)}</h4>
+          <div className="space-y-3 mb-4">
+            {project.designDecisions.map((d, i) => (
+              <div key={i} className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-3">
+                <div className="text-sm font-semibold text-sky-500 mb-1">{t(d.title, lang)}</div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{t(d.reasoning, lang)}</p>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      <div className="flex flex-wrap gap-1.5 mb-4">
         {project.techStack.map((tech) => (
           <span key={tech} className="text-xs px-2 py-0.5 font-mono bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 rounded border border-slate-200 dark:border-transparent">
             {tech}
           </span>
         ))}
       </div>
+
+      {project.relatedNotes && project.relatedNotes.length > 0 && (
+        <div className="pt-3 border-t border-slate-200 dark:border-slate-700">
+          <span className="text-xs text-slate-400 mr-2">{ui('relatedArticle', lang)}:</span>
+          {project.relatedNotes.map((slug) => {
+            const post = blogPosts.find((p) => p.slug === slug)
+            if (!post) return null
+            return (
+              <a key={slug} href="#notes" className="text-xs text-sky-500 hover:text-sky-400 transition-colors">
+                {t(post.title, lang)} →
+              </a>
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }

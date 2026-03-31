@@ -7,6 +7,8 @@ excerpt: "A design and implementation record of a pure-functional game engine co
 
 # Building a game engine that powers 11,000+ cards — with AI
 
+> **Note**: The figures in this article (test count, commit count, etc.) are as of March 2026. See the project page for the latest numbers.
+
 ## What I built
 
 I'm developing "DuelMasters Plays," an online battle platform for the Duel Masters TCG. It supports both AI battles (offline) and real-time online matches via Socket.IO — a full-stack application.

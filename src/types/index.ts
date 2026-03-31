@@ -6,6 +6,11 @@ export type LocalizedText = {
   en?: string
 }
 
+export type DesignDecision = {
+  title: LocalizedText
+  reasoning: LocalizedText
+}
+
 export type Project = {
   slug: string
   name: LocalizedText
@@ -20,11 +25,16 @@ export type Project = {
   visibility: 'public' | 'private'
   scale?: Record<string, string>
   featured?: boolean
+  designDecisions?: DesignDecision[]
+  relatedNotes?: string[]
+  architectureImage?: string
 }
 
 export type SkillCategory = {
   name: LocalizedText
   skills: string[]
+  evidence?: LocalizedText
+  projectSlugs?: string[]
 }
 
 export type Profile = {

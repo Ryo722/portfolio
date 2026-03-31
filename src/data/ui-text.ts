@@ -10,6 +10,8 @@ const texts = {
   viewDetails: { ja: '詳細を見る', en: 'View Details' },
   close: { ja: '閉じる', en: 'Close' },
   highlights: { ja: '工夫した点', en: 'Highlights' },
+  designDecisions: { ja: '設計判断', en: 'Design Decisions' },
+  relatedArticle: { ja: '関連記事', en: 'Related Article' },
   contactMessage: { ja: 'お仕事のご相談やご質問はお気軽にどうぞ。', en: 'Feel free to reach out for work inquiries or questions.' },
   notesDescription: { ja: '開発で学んだことや考えたことを書いています。', en: 'Writing about things I learned and thought about through development.' },
   comingSoon: { ja: '近日公開', en: 'Coming Soon' },

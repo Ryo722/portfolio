@@ -33,6 +33,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const { lang } = useLang()
   const gradient = categoryGradients[project.category] ?? 'from-slate-700/30 to-slate-600/30'
   const icon = categoryIcons[project.category] ?? '📁'
+  const detailId = `detail-${project.slug}`
 
   return (
     <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-400/5">
@@ -84,6 +85,8 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.visibility === 'private' && <span className="text-xs text-slate-400">Private</span>}
           <button
             onClick={() => setIsExpanded(!isExpanded)}
+            aria-expanded={isExpanded}
+            aria-controls={detailId}
             className="ml-auto text-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors cursor-pointer"
           >
             {isExpanded ? ui('close', lang) : ui('viewDetails', lang)}
@@ -91,7 +94,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      <div className={`grid transition-all duration-300 ease-in-out ${isExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+      <div id={detailId} className={`grid transition-all duration-300 ease-in-out ${isExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
         <div className="overflow-hidden">
           {isExpanded && <ProjectDetail project={project} />}
         </div>
