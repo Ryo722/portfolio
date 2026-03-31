@@ -7,16 +7,16 @@ export const profile: Profile = {
     en: 'Building from game engines to infrastructure — with AI as my co-developer.',
   },
   about: {
-    ja: `フロントエンドからゲームエンジン、インフラまで——「自分が欲しいもの」を起点に、AIをパートナーとして設計から運用までを手がける個人開発者です。
+    ja: `「自分が欲しいもの」を起点に、AIをパートナーとして設計から運用まで手がける個人開発者です。
 
-代表作は、11,000枚超のカード定義と152モジュールの純粋関数型ゲームエンジンを搭載したオンライン対戦プラットフォーム。React + TypeScript のフロントエンドから Express + Socket.IO のリアルタイム通信、Docker + GitHub Actions の CI/CD、Cloudflare Tunnel の自宅サーバーデプロイまで、AIとの共同開発でフルスタックに構築しています。
+代表作は、デュエル・マスターズのオンライン対戦プラットフォーム。11,000枚超のカードを処理する純粋関数型ゲームエンジン（152モジュール・1,565テスト）を核に、フロントエンドからリアルタイム通信、自宅サーバーへのデプロイまでフルスタックで構築しました。
 
-Claude Code を活用したマルチエージェントオーケストレーションにも積極的に取り組んでおり、複数ドメインで「AIと回す運営OS」を設計・運用中。AI × 金融では、邦銀レポートを LLM で構造化して FX 売買シグナルを自動生成するシステムも開発しています。`,
-    en: `A developer who builds everything from frontend to game engines to infrastructure — with AI as a co-developer, driven by the desire to create what I personally want to use.
+ほかにも、邦銀レポートをLLMで構造化してFXシグナルを自動生成するシステムや、Claude Codeによるマルチエージェント運営OSなど、AI × 開発の実践を広げています。`,
+    en: `A developer who builds what I want to use — with AI as my partner, from design through production.
 
-My flagship project is an online battle platform featuring a pure-functional game engine with 152 modules and 11,000+ card definitions. Built full-stack through AI-assisted development: React + TypeScript frontend, Express + Socket.IO real-time communication, Docker + GitHub Actions CI/CD, and self-hosted deployment via Cloudflare Tunnel.
+My flagship project is an online battle platform for the Duel Masters TCG. At its core is a pure-functional game engine (152 modules, 1,565 tests) that processes 11,000+ cards, built full-stack from frontend to real-time communication to self-hosted deployment.
 
-Actively exploring multi-agent orchestration with Claude Code, designing and operating "AI-powered operational OS" across multiple domains. Also developing an AI × finance system that structures Japanese bank FX reports with LLMs to auto-generate trading signals.`,
+Beyond that, I build systems like an LLM-powered FX signal generator that structures Japanese bank reports, and multi-agent operational OS powered by Claude Code — expanding the practice of AI × development.`,
   },
   githubUrl: 'https://github.com/Ryo722',
   email: '793hanachan722@gmail.com',
