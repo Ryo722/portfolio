@@ -10,8 +10,8 @@ export const projects: Project[] = [
       en: 'Online battle platform powering 11,000+ cards',
     },
     description: {
-      ja: `デュエル・マスターズのオンライン対戦プラットフォーム。152モジュールの純粋関数型ゲームエンジンが、11,000枚超のカード定義に基づいてDM総合ルール準拠の効果処理を実行します。AI対戦（オフライン）とSocket.IOによるリアルタイムオンライン対戦の両方に対応。1,565件以上のテストとCI/CDパイプラインで品質を担保しています。`,
-      en: `An online battle platform for Duel Masters TCG. A pure-functional game engine with 152 modules processes effects based on 11,000+ card definitions, fully compliant with DM comprehensive rules. Supports both AI battles (offline) and real-time online matches via Socket.IO. Quality ensured by 1,565+ tests and CI/CD pipelines.`,
+      ja: `好きなデュエマを自分の手で再現したかった。離れた友人とも遊びたかったし、ケチだから無料で遊べる場所が欲しかった。\n\n152モジュールの純粋関数型エンジンで、11,000枚超のカード定義に基づくDM総合ルール準拠の効果処理を実装。置換効果やキーワード能力13種など、紙のデュエマでできることはほぼ再現した。AI対戦とSocket.IOによるオンライン対戦の両方に対応。1,565件超のテストとCI/CDで品質を担保している。\n\nUI/UXが苦手で見た目は無骨なまま。今も苦しい部分だが、権利問題さえなければ人に届けたい唯一のプロジェクト。`,
+      en: `I wanted to recreate the Duel Masters TCG I love with my own hands. I also wanted to play with friends who live far away — and honestly, I'm cheap, so I wanted a free place to play.\n\nThe pure-functional engine (152 modules) processes effects based on 11,000+ card definitions, fully compliant with DM comprehensive rules — replacement effects, 13 keyword abilities, and nearly everything possible in the physical card game. Supports both AI battles and real-time online matches via Socket.IO, backed by 1,565+ tests and CI/CD.\n\nUI/UX has always been my weak point, and the design remains rough. It's still something I struggle with, but this is the only project I'd genuinely want to put in people's hands — if not for the rights issue.`,
     },
     techStack: ['Next.js', 'TypeScript', 'Express', 'Socket.IO', 'Prisma', 'PostgreSQL', 'Docker', 'GitHub Actions'],
     highlights: [
@@ -33,38 +33,6 @@ export const projects: Project[] = [
       'カード定義': '11,000+',
     },
     featured: true,
-    designDecisions: [
-      {
-        title: {
-          ja: '純粋関数型エンジン設計',
-          en: 'Pure-functional engine design',
-        },
-        reasoning: {
-          ja: 'テスタビリティ・リプレイ可能性・フロント/バック共有の3要件を同時に満たすため、副作用のない純粋関数を唯一のエントリポイント（processCommand）とした。結果としてテストが自然に積み上がり、SeededRNGと組み合わせた決定論的リプレイも実現。',
-          en: 'Chose pure functions with a single entry point (processCommand) to satisfy testability, replayability, and frontend/backend code sharing simultaneously. This naturally accumulated tests and enabled deterministic replay with SeededRNG.',
-        },
-      },
-      {
-        title: {
-          ja: 'カードビルダーパターンによる11,000枚の汎用処理',
-          en: 'Card builder pattern for 11,000+ cards',
-        },
-        reasoning: {
-          ja: '個別カード対応ではなく、6種のカードビルダー × キーワード能力モジュール × 効果レジストリの仕組みで汎用処理。カードは定義データとして扱い、エンジンは定義を解釈する側に徹する設計。',
-          en: 'Instead of per-card implementation, used 6 card builders × keyword ability modules × effect registry for generic processing. Cards are treated as definition data; the engine interprets definitions.',
-        },
-      },
-      {
-        title: {
-          ja: '置換効果の一元管理（総合ルール609条準拠）',
-          en: 'Centralized replacement effects (Rule 609 compliant)',
-        },
-        reasoning: {
-          ja: 'カードゲームエンジンで最も複雑な「破壊される代わりに」等の置換効果を replacementEffects.ts で一元管理。優先順位解決をルールブックに忠実に実装し、カード間の予期しないインタラクションを型安全に処理。',
-          en: 'Centralized the most complex part of card game engines — replacement effects like "instead of being destroyed" — in replacementEffects.ts. Priority resolution faithful to the rulebook, handling unexpected card interactions type-safely.',
-        },
-      },
-    ],
     relatedNotes: ['building-game-engine'],
   },
   {
@@ -76,8 +44,8 @@ export const projects: Project[] = [
       en: 'Create Duel Masters-style custom cards in the browser',
     },
     description: {
-      ja: `Canvas APIで自作した3レイヤーレンダリングエンジン（Illustration / Text / Frame）により、入力した情報をリアルタイムにカード画像へ合成し、PNG形式で出力します。画像アップロード＆トリミング機能、通常カード・ツインパクトカード対応。`,
-      en: `A custom-built 3-layer rendering engine (Illustration / Text / Frame) using Canvas API composites card images in real-time and exports as PNG. Features image upload & cropping, supports normal and Twinpact card types.`,
+      ja: `ブラウザ上でデュエマ風オリジナルカードを作成し、PNG画像として出力できるツール。ツインパクトカードにも対応。\n\nデュエマが好きで、「こんなカードがあったらいいな」と考えることがあった。その体験を形にしたくて作った。Canvas APIで3レイヤーレンダリングエンジン（Illustration / Text / Frame）を自作し、入力情報をリアルタイムにカード画像へ合成する仕組み。画像アップロードとトリミング機能も搭載。\n\nカードを考える楽しさを、同じデュエマ好きな人に届けたいと思って公開している。`,
+      en: `A browser tool for creating Duel Masters-style custom cards and exporting them as PNG images. Supports Twinpact cards too.\n\nAs a Duel Masters fan, I sometimes imagined "what if this card existed?" I wanted to turn that experience into something tangible. Built a custom 3-layer rendering engine (Illustration / Text / Frame) with Canvas API that composites card images in real-time. Includes image upload and cropping.\n\nI published it hoping other Duel Masters fans would enjoy the experience of designing their own cards.`,
     },
     techStack: ['React', 'TypeScript', 'Material-UI', 'Canvas API', 'Cropper.js', 'GitHub Pages'],
     highlights: [
@@ -90,6 +58,7 @@ export const projects: Project[] = [
     demoUrl: 'https://ryo722.github.io/DMOriginalCardGenerator-prod',
     image: '/portfolio/images/projects/dm-card-generator.png',
     visibility: 'public',
+    relatedNotes: ['canvas-rendering-engine'],
   },
   {
     slug: 'ev-panel-8',
@@ -100,8 +69,8 @@ export const projects: Project[] = [
       en: 'A nostalgic Flash game rebuilt with React + TypeScript',
     },
     description: {
-      ja: `2005年頃に「ポケモンだいすきクラブ」で公開されていたFlash製ミニゲームを、モダンWeb技術で完全再構築。3×3盤面でパネルをスライドし同属性3枚を揃えて消すパズルゲーム。進化・フィーバーシステム搭載。`,
-      en: `A complete rebuild of a Flash mini-game originally published on the Pokémon Fan Club website around 2005. A puzzle game where you slide panels on a 3×3 board to match 3 of the same type. Features evolution and fever systems.`,
+      ja: `3×3盤面でパネルをスライドし、同属性3枚を揃えて消すパズルゲーム。進化・フィーバーシステム搭載。\n\n幼少期に「ポケモンだいすきクラブ」で毎日遊んでいたFlashゲームが懐かしくなり、React + TypeScriptで再構築した。useReducerベースのゲーム状態管理で、スライドパズルとマッチ3の複合ロジックを実装。\n\nまだ物足りなさがある。本物のように面白くするには、演出やテンポの工夫がもっと必要だと感じている。`,
+      en: `A puzzle game where you slide panels on a 3x3 board to match 3 of the same type. Features evolution and fever systems.\n\nI used to play this Flash game on the Pokemon Fan Club website every day as a kid. When nostalgia hit, I rebuilt it with React and TypeScript. Game state is managed via useReducer, implementing hybrid slide-puzzle and match-3 logic.\n\nIt still feels incomplete. Making it as fun as the original requires more work on animations and pacing — something I haven't cracked yet.`,
     },
     techStack: ['React', 'TypeScript', 'Vite', 'CSS Modules', 'Vitest', 'GitHub Pages'],
     highlights: [
@@ -114,6 +83,7 @@ export const projects: Project[] = [
     demoUrl: 'https://ryo722.github.io/EVPanel8/',
     image: '/portfolio/images/projects/ev-panel-8.png',
     visibility: 'public',
+    relatedNotes: ['usereducer-game-state'],
   },
   {
     slug: 'm4fx-trade-signal',
@@ -124,8 +94,8 @@ export const projects: Project[] = [
       en: 'LLM-powered daily FX trade signals from Japanese bank reports',
     },
     description: {
-      ja: `三菱UFJ銀行・三井住友銀行・りそな銀行のFXレポートをAIで構造化し、USD/JPY売買シグナル候補を毎朝自動生成するトレード意思決定支援システム。Streamlit UIで7画面を備え、朝・日中・夜間の3パイプラインが稼働。`,
-      en: `A trade decision support system that structures FX reports from major Japanese banks using AI and auto-generates USD/JPY trade signal candidates every morning. Features a 7-screen Streamlit UI with morning, daytime, and evening pipelines.`,
+      ja: `邦銀3行のFXレポートをLLMで構造化し、USD/JPY売買シグナル候補を毎朝自動生成するトレード意思決定支援システム。\n\nお金を稼ぎたかった。それが動機のすべて。Streamlit UIで7画面を備え、朝・日中・夜間の3パイプラインが稼働する設計。複数銀行レポートの統合分析とシグナル生成をLLMに任せている。\n\nまだ試験運用の段階で、実利益は出ていない。`,
+      en: `A trade decision support system that structures FX reports from three Japanese banks using LLM and auto-generates USD/JPY trade signal candidates every morning.\n\nThe motivation was simple: I wanted to make money. That's all there is to it. Built with a 7-screen Streamlit UI running three pipelines (morning, daytime, evening). LLM handles integrated analysis of multi-bank reports and signal generation.\n\nStill in trial operation — no real profit yet.`,
     },
     techStack: ['Python', 'SQLAlchemy', 'PostgreSQL', 'OpenAI API', 'Streamlit', 'Docker', 'Prometheus', 'Grafana'],
     highlights: [
@@ -138,6 +108,7 @@ export const projects: Project[] = [
     demoUrl: null,
     image: null,
     visibility: 'private',
+    relatedNotes: ['llm-fx-pipeline'],
   },
   {
     slug: 'multi-agent-os',
@@ -148,8 +119,8 @@ export const projects: Project[] = [
       en: 'Three large-scale operational OS built with Claude Code',
     },
     description: {
-      ja: `Claude Codeとtakt（マルチエージェントオーケストレーションエンジン）を活用し、3つのドメインで運営OSを個人で設計・運用中。文芸小説制作OS（8エージェント・39スキル・5段階品質ゲート）、VTuber事務所OS（11エージェント）、SNS収益化OS（CEO自動委任パイプライン）。`,
-      en: `Designing and operating single-person operational OS across 3 domains using Claude Code and takt (multi-agent orchestration engine). Literary novel production OS (8 agents, 39 skills, 5-stage quality gates), VTuber agency OS (11 agents), SNS monetization OS (CEO auto-delegation pipeline).`,
+      ja: `Claude Codeとtaktを使い、3つのドメインで運営OSを個人で設計・運用しているマルチエージェントシステム群。\n\n1エージェントに全部任せるとコンテキストが肥大化して品質が落ちる。適材適所でエージェントを分けることで、自分ひとりでも高い出力を維持したかった。文芸小説制作OS（8エージェント・39スキル・5段階品質ゲート）、VTuber事務所OS（11エージェント）、SNS収益化OS（CEO自動委任パイプライン）の3つを運用中。\n\n企画から公開まで自動パイプラインで回している。`,
+      en: `A collection of multi-agent systems designed and operated solo across three domains, built with Claude Code and takt.\n\nWhen one agent handles everything, context bloats and output quality drops. I wanted to maintain good results by assigning the right agent to the right task. Currently running three systems: a literary novel production OS (8 agents, 39 skills, 5-stage quality gates), a VTuber agency OS (11 agents), and an SNS monetization OS (CEO auto-delegation pipeline).\n\nEach runs a fully automated pipeline from planning to publishing.`,
     },
     techStack: ['Claude Code', 'takt', 'Remotion', 'ComfyUI', 'VOICEVOX'],
     highlights: [
@@ -162,6 +133,7 @@ export const projects: Project[] = [
     demoUrl: null,
     image: null,
     visibility: 'private',
+    relatedNotes: ['multi-agent-orchestration'],
   },
   {
     slug: 'zero-trust-home-server',
@@ -172,8 +144,8 @@ export const projects: Project[] = [
       en: 'Self-hosted server with Cloudflare Tunnel × Tailscale route separation',
     },
     description: {
-      ja: `GMKtec NUCBox 3上にDockerで複数アプリ（Next.js, Python API, PostgreSQL）を運用。公開経路（Cloudflare Tunnel）と管理経路（Tailscale）を完全分離したゼロトラスト設計。GitHub Actions自動デプロイ、3重モニタリングを構築。`,
-      en: `Running multiple apps (Next.js, Python API, PostgreSQL) on Docker on a GMKtec NUCBox 3. Zero-trust design with complete separation of public routes (Cloudflare Tunnel) and management routes (Tailscale). GitHub Actions auto-deploy and triple monitoring.`,
+      ja: `GMKtec NUCBox 3上にDockerで複数アプリを運用する自宅サーバー。公開経路と管理経路を完全分離したゼロトラスト設計。\n\nDuelMastersPlaysや自動投稿アプリを動かすために、余ったミニPCで挑戦した。セキュリティを可能な限り高めたくて、Cloudflare Tunnel（公開経路）とTailscale（管理経路）で経路分離。GitHub Actions自動デプロイ、Prometheus + Grafana + Uptime Kumaの3重モニタリングも構築した。\n\n自宅回線が貧弱でまともに使えず、現在シャットダウン中。`,
+      en: `A self-hosted server running multiple apps on Docker on a GMKtec NUCBox 3, with zero-trust design separating public and management routes.\n\nI needed somewhere to run DuelMastersPlays and my auto-posting apps, so I repurposed a spare mini PC. Wanted to make security as tight as possible — separated routes via Cloudflare Tunnel (public) and Tailscale (management). Built GitHub Actions auto-deploy and triple monitoring with Prometheus, Grafana, and Uptime Kuma.\n\nMy home internet turned out to be too weak for practical use. Currently shut down.`,
     },
     techStack: ['Docker', 'Cloudflare Tunnel', 'Tailscale', 'Prometheus', 'Grafana', 'Uptime Kuma', 'GitHub Actions'],
     highlights: [
@@ -186,6 +158,7 @@ export const projects: Project[] = [
     demoUrl: null,
     image: null,
     visibility: 'private',
+    relatedNotes: ['zero-trust-home-server'],
   },
   {
     slug: 'sns-auto-post',
@@ -196,8 +169,8 @@ export const projects: Project[] = [
       en: 'Centralized scheduled posting for 6 accounts across X + Threads',
     },
     description: {
-      ja: `X（3アカウント）とThreads（3アカウント）の予約投稿をTypeScript monorepoで統合管理。管理画面（Next.js）・ジョブワーカー・DBをpnpm workspaceで分離し、pg-bossによるジョブキューイングで非同期投稿処理を実現。`,
-      en: `A TypeScript monorepo managing scheduled posts for 3 X accounts and 3 Threads accounts. Separated into admin UI (Next.js), job worker, and DB via pnpm workspace, with pg-boss job queuing for async post processing.`,
+      ja: `X（3アカウント）とThreads（3アカウント）の予約投稿を一元管理するシステム。管理画面から投稿を予約し、自動で各SNSに配信する。\n\n同時多発的な活動の宣伝にSNSが必要だったが、手動投稿が面倒だった。楽にしたかったのが動機。TypeScript monorepoで管理画面（Next.js）・ジョブワーカー・DBをpnpm workspaceで分離し、pg-bossによるジョブキューイングで非同期投稿処理を実現。リプライ投稿にも対応。\n\nXのAPI有料化で運用ストップ中。`,
+      en: `A system for centralized scheduled posting across X (3 accounts) and Threads (3 accounts). Schedule posts from the admin UI and auto-deliver to each platform.\n\nI was running multiple projects simultaneously and needed SNS for promotion, but manual posting was tedious. I wanted to make it effortless. Built as a TypeScript monorepo with admin UI (Next.js), job worker, and DB separated via pnpm workspace. Async posting handled by pg-boss job queuing. Supports reply posting too.\n\nCurrently paused due to X's API paywall.`,
     },
     techStack: ['TypeScript', 'Next.js', 'Prisma', 'PostgreSQL', 'pg-boss', 'Docker', 'pnpm workspace'],
     highlights: [
@@ -209,6 +182,7 @@ export const projects: Project[] = [
     demoUrl: null,
     image: null,
     visibility: 'private',
+    relatedNotes: ['sns-auto-post-monorepo'],
   },
   {
     slug: 'pokeca-damage-unity',
@@ -219,8 +193,8 @@ export const projects: Project[] = [
       en: 'Pokémon TCG damage calculator built with Unity',
     },
     description: {
-      ja: `ポケモンカードゲームのダメージ計算を、ドラッグ＆ドロップの直感的なUIで行えるシミュレーター。バトル場とベンチにカードを配置し、ダメージを自動計算します。`,
-      en: `A simulator for Pokémon TCG damage calculation with an intuitive drag-and-drop UI. Place cards on the battle field and bench to auto-calculate damage.`,
+      ja: `ポケモンカードゲームのダメージ計算を、ドラッグ＆ドロップで直感的に行えるシミュレーター。バトル場とベンチにカードを配置するだけで自動計算する。\n\n当時、UIデザインを自分で作れるツールがUnityしかなかったため、Unityで挑戦した。公式の計算ツールよりは使いやすかったと思っているが、後に出た非公式サイコロアプリには負けた。\n\n初期のプロジェクトで、今見ると荒いが、UIを自分で考えて形にした最初の経験だった。`,
+      en: `A simulator for Pokemon TCG damage calculation with an intuitive drag-and-drop UI. Just place cards on the battle field and bench to auto-calculate.\n\nAt the time, Unity was the only tool I could use to design UIs myself, so I built it there. I think it was more usable than the official calculator, but a third-party dice app that came out later beat it.\n\nThis was an early project. It looks rough now, but it was my first experience designing and building a UI on my own.`,
     },
     techStack: ['Unity 2020', 'C#'],
     highlights: [
@@ -229,7 +203,7 @@ export const projects: Project[] = [
     ],
     githubUrl: 'https://github.com/Ryo722/PokecaDamageUnity',
     demoUrl: null,
-    image: null,
+    image: '/portfolio/images/projects/pokeca-damage-unity.png',
     visibility: 'public',
   },
   {
@@ -241,8 +215,8 @@ export const projects: Project[] = [
       en: 'Semi-automated daily journal: ChatGPT voice input → Notion',
     },
     description: {
-      ja: `ChatGPTで音声入力→整理したMarkdownを、クリップボード経由でNotion Daily Journalに自動追記するシェルスクリプトシステム。ncli（Notion CLI）を活用した半自動フロー。`,
-      en: `A shell script system that auto-appends voice-input text organized via ChatGPT to Notion Daily Journal through clipboard. Semi-automated flow using ncli (Notion CLI).`,
+      ja: `ChatGPT音声入力で話した内容をMarkdownに整理し、Notion Daily Journalへ半自動で追記するシェルスクリプトシステム。\n\n自分を振り返って記録に残したかった。データ化すれば自己改善にも役立つと思った。ChatGPTの音声入力はテキスト変換精度が良く、考えをそのままアウトプットできるのが気に入っている。ncli（Notion CLI）を活用し、クリップボード経由でNotionに追記する軽量な仕組み。\n\n途切れ途切れだが、続けようとしている。`,
+      en: `A shell script system that takes voice input via ChatGPT, organizes it into Markdown, and semi-automatically appends it to Notion Daily Journal.\n\nI wanted to reflect on my days and keep a record. I figured turning it into data could help with self-improvement. ChatGPT's voice input has good transcription accuracy, which lets me dump my thoughts as-is. Uses ncli (Notion CLI) to append to Notion via clipboard — a lightweight setup.\n\nI've been on and off with it, but I'm still trying to keep it going.`,
     },
     techStack: ['Bash', 'Notion CLI (ncli)', 'Notion API'],
     highlights: [
@@ -253,6 +227,7 @@ export const projects: Project[] = [
     demoUrl: null,
     image: null,
     visibility: 'private',
+    relatedNotes: ['notion-journal-automation'],
   },
   {
     slug: 'cafenavi',
@@ -263,8 +238,8 @@ export const projects: Project[] = [
       en: 'Find your perfect coffee from 25 bean profiles',
     },
     description: {
-      ja: `味の好みやお菓子の好み、飲用シーンに関する質問に答えるだけで、25種のコーヒー豆からベストマッチを提案するパーソナライズ診断アプリ。コサイン類似度によるマッチング、レーダーチャートでの豆比較、診断履歴の統計ダッシュボードを搭載。初心者モード（10問）と中級者モード（20問）に対応。`,
-      en: `A personalized coffee diagnosis app that recommends the best match from 25 bean profiles based on your taste preferences, snack pairings, and drinking scenarios. Features cosine similarity matching, radar chart comparisons, and a statistics dashboard for diagnosis history. Supports beginner (10 questions) and intermediate (20 questions) modes.`,
+      ja: `味の好みや飲用シーンに答えるだけで、25種のコーヒー豆からベストマッチを提案する診断アプリ。初心者モード（10問）と中級者モード（20問）に対応。\n\nコーヒーが好きで、豆から挽く程度にのめり込んでいる。自分に合う豆を見つける体験を形にしたかった。コサイン類似度で10軸のフレーバースコアをマッチングし、レーダーチャートで豆を比較できる。診断履歴の統計ダッシュボードも搭載。Vitest 68テスト + Playwright E2E 14テストで品質を担保。\n\nまだ自分では試せていないが、次にコーヒーショップで買う参考にする予定。`,
+      en: `A diagnosis app that recommends the best match from 25 coffee bean profiles based on your taste preferences and drinking scenarios. Supports beginner (10 questions) and intermediate (20 questions) modes.\n\nI like coffee enough to grind beans at home. I wanted to build something that captures the experience of finding your perfect bean. Uses cosine similarity across 10 flavor axes for matching, with radar chart comparisons and a statistics dashboard for diagnosis history. Backed by 68 Vitest unit tests and 14 Playwright E2E tests.\n\nHaven't actually used it for my own purchases yet, but I plan to try it next time I'm at a coffee shop.`,
     },
     techStack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vitest', 'Playwright', 'GitHub Pages'],
     highlights: [
@@ -279,35 +254,12 @@ export const projects: Project[] = [
     demoUrl: 'https://ryo722.github.io/CafeNavi/',
     image: '/portfolio/images/projects/cafenavi.png',
     visibility: 'public',
+    relatedNotes: ['cafenavi-coffee-diagnosis'],
     scale: {
       'コミット数': '29',
       'ソースファイル': '60',
       'コード行数': '9,191',
       'テスト数': '82（Unit 68 + E2E 14）',
     },
-    featured: true,
-    designDecisions: [
-      {
-        title: {
-          ja: 'コサイン類似度による味覚マッチング',
-          en: 'Cosine similarity for taste matching',
-        },
-        reasoning: {
-          ja: '10軸のフレーバースコアで豆と回答をベクトル化し、コサイン類似度で距離を計算。単純な重み付きスコアより、味覚の「方向性」を捉えられる。',
-          en: 'Vectorized beans and answers across 10 flavor axes, using cosine similarity for distance. Captures taste "direction" better than simple weighted scores.',
-        },
-      },
-      {
-        title: {
-          ja: 'フロントエンド完結アーキテクチャ',
-          en: 'Frontend-only architecture',
-        },
-        reasoning: {
-          ja: '診断ロジック・統計・履歴を全てクライアントサイドで完結。GitHub Pagesでホスティング可能にし、バックエンドコストをゼロにした。localStorageで履歴永続化。',
-          en: 'All diagnosis logic, statistics, and history run client-side. Deployable on GitHub Pages with zero backend cost. History persisted via localStorage.',
-        },
-      },
-    ],
-    relatedNotes: ['cafenavi-coffee-diagnosis'],
   },
 ]

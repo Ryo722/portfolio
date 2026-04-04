@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+    <link rel="manifest" href="/portfolio/manifest.json" />
+    <link rel="apple-touch-icon" href="/portfolio/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#1A1816" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://plausible.io" />
     <title>Ryo722 — Portfolio</title>
-    <meta name="description" content="Ryo722のポートフォリオサイト。Web開発、ゲームエンジン、AI活用、自動化。" />
+    <meta name="description" content="好奇心で手を動かし、アイデアを形にする。飽きっぽい凡人が10個のプロダクトを作った記録。" />
     <link rel="canonical" href="https://ryo722.github.io/portfolio/" />
     <script type="application/ld+json">
     {
@@ -18,21 +21,21 @@
         "@type": "Person",
         "name": "Ryo722",
         "url": "https://github.com/Ryo722",
-        "jobTitle": "Full-stack Developer",
+        "jobTitle": "Software Developer",
         "knowsAbout": ["React", "TypeScript", "Game Engine Design", "AI/LLM", "Infrastructure"]
       }
     }
     </script>
     <!-- OGP -->
     <meta property="og:title" content="Ryo722 — Portfolio" />
-    <meta property="og:description" content="React / TypeScript を軸に、設計・テスト・運用まで一気通貫で構築するフルスタック開発者。" />
+    <meta property="og:description" content="好奇心で手を動かし、アイデアを形にする。飽きっぽい凡人が10個のプロダクトを作った記録。" />
     <meta property="og:image" content="https://ryo722.github.io/portfolio/og-image.jpg" />
     <meta property="og:url" content="https://ryo722.github.io/portfolio/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ryo722 — Portfolio" />
-    <meta name="twitter:description" content="React / TypeScript を軸に、設計・テスト・運用まで一気通貫で構築するフルスタック開発者。" />
+    <meta name="twitter:description" content="好奇心で手を動かし、アイデアを形にする。飽きっぽい凡人が10個のプロダクトを作った記録。" />
     <meta name="twitter:image" content="https://ryo722.github.io/portfolio/og-image.jpg" />
     <!-- Analytics (Plausible — privacy-friendly, no cookies) -->
     <script defer data-domain="ryo722.github.io" src="https://plausible.io/js/script.js"></script>
@@ -50,8 +53,15 @@
       })();
     </script>
   </head>
-  <body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 antialiased transition-colors duration-300">
+  <body class="bg-[var(--color-bg)] text-[var(--color-text)] antialiased transition-colors duration-300">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/portfolio/sw.js')
+        })
+      }
+    </script>
   </body>
 </html>

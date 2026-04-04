@@ -3,20 +3,24 @@ import type { Profile } from '../types'
 export const profile: Profile = {
   name: 'Ryo722',
   tagline: {
-    ja: 'React / TypeScript を軸に、設計・テスト・運用まで一気通貫で構築するフルスタック開発者。',
-    en: 'Full-stack developer building end-to-end with React / TypeScript — from design through testing to production.',
+    ja: '好奇心で手を動かし、アイデアを形にする。飽きっぽい凡人が10個のプロダクトを作った記録。',
+    en: 'Curious builder who turns ideas into working products — an honest record of 10 projects by an ordinary person.',
   },
   about: {
-    ja: `React / TypeScript によるフロントエンド設計を主軸に、バックエンド・インフラ・AI活用までカバーするフルスタック開発者です。純粋関数型ゲームエンジン（1,565テスト）やLLMパイプラインなど、複雑なドメインロジックの設計・実装に強みがあります。
+    ja: `ポケモンのようなゲームが好きで「自分でも作りたい」と思ったのがきっかけで、コードを書き始めました。最初にプログラムが動いた時のワクワクは今でも覚えています。
 
-テスト駆動・型安全・CI/CD を当たり前の基盤として、動くだけでなく検証可能・保守可能なコードを書きます。個人プロジェクトでも TDD、構造化テスト、自動デプロイを徹底しています。
+正直に言えば、ほとんどのプロジェクトは自己満足と見栄です。技術力はAIに支えられているし、作って飽きたものもあります。それでも「欲しいものを形にする」楽しさだけは変わりません。
 
-フロントエンドからリアルタイム通信、ゼロトラストインフラ、AIエージェント設計まで——技術選定と設計判断を自分で行い、実装・運用まで一気通貫で遂行できます。`,
-    en: `A full-stack developer focused on frontend design with React / TypeScript, covering backend, infrastructure, and AI integration. I specialize in designing and implementing complex domain logic — from a pure-functional game engine (1,565 tests) to LLM pipelines.
+そんな中で、DuelMastersPlays は本当に人に届けたいと思って作った唯一のプロダクトです。純粋関数型のゲームエンジン（1,565テスト）を、フロントからインフラまで一人で組み上げました。
 
-I build code that is not just functional but verifiable and maintainable, with TDD, type safety, and CI/CD as standard foundations. Even in personal projects, I enforce structured testing and automated deployment.
+良いプロダクトとは、作り手のことが想像できて、参考にしたものへのリスペクトと愛が感じられるもの——そう信じています。誰かの「新しいこと」を一緒に形にする仕事がしたいと思っています。`,
+    en: `I started coding because I loved games and wanted to build my own. I still remember the genuine excitement when my first program ran.
 
-From frontend to real-time communication, zero-trust infrastructure, and AI agent design — I make technology choices, design decisions, and execute end-to-end through production.`,
+To be honest, most of my projects are born from curiosity and a bit of vanity. My skills lean on AI, and some projects I built and moved on from. But the joy of turning an idea into something real has never changed.
+
+Among them, DuelMastersPlays is the one project I truly wanted to deliver to people. I built a pure-functional game engine (1,565 tests) end-to-end — from frontend to infrastructure — on my own.
+
+I believe a good product is one where you can sense the maker behind it, along with their respect and love for what inspired them. I want to work with someone to bring new ideas to life.`,
   },
   githubUrl: 'https://github.com/Ryo722',
   email: 'ryo722.m0kur0@gmail.com',

@@ -129,7 +129,8 @@ portfolio/site/
 ├── docs/
 │   ├── architecture/            # アーキテクチャ文書
 │   │   ├── gate-model.md
-│   │   └── brand-book.md
+│   │   ├── brand-book.md
+│   │   └── portfolio-soul.md
 │   ├── workflows/               # ワークフロー定義
 │   ├── adr/                     # Architecture Decision Records
 │   └── templates/               # テンプレート

@@ -11,9 +11,9 @@ export function Header() {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 dark:bg-slate-900/80 bg-white/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-md border-b border-[var(--color-border)]">
       <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a href="#" className="text-lg font-bold text-slate-900 dark:text-slate-50 hover:text-sky-400 transition-colors">
+        <a href="#" className="text-lg font-bold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">
           Ryo722
         </a>
 
@@ -24,7 +24,7 @@ export function Header() {
               <li key={key}>
                 <a
                   href={`#${key}`}
-                  className="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 transition-colors"
+                  className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
                 >
                   {ui(key, lang)}
                 </a>
@@ -35,8 +35,8 @@ export function Header() {
           {/* テーマ切替 */}
           <button
             onClick={toggleTheme}
-            className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 transition-colors cursor-pointer"
-            aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}
+            className="p-1.5 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors cursor-pointer"
+            aria-label={ui('toggleTheme', lang)}
           >
             {theme === 'dark' ? (
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -52,7 +52,8 @@ export function Header() {
           {/* 言語切替 */}
           <button
             onClick={() => setLang(lang === 'ja' ? 'en' : 'ja')}
-            className="text-xs font-mono px-2 py-1 border border-slate-300 dark:border-slate-700 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:border-sky-400 transition-colors cursor-pointer"
+            className="text-xs font-mono px-2 py-1 border border-[var(--color-border)] rounded text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-accent)] transition-colors cursor-pointer"
+            aria-label={ui('switchLang', lang)}
           >
             {lang === 'ja' ? 'EN' : 'JA'}
           </button>
@@ -62,8 +63,8 @@ export function Header() {
         <div className="sm:hidden flex items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="p-1.5 text-slate-500 dark:text-slate-400 cursor-pointer"
-            aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}
+            className="p-1.5 text-[var(--color-text-muted)] cursor-pointer"
+            aria-label={ui('toggleTheme', lang)}
           >
             {theme === 'dark' ? (
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -77,32 +78,33 @@ export function Header() {
           </button>
           <button
             onClick={() => setLang(lang === 'ja' ? 'en' : 'ja')}
-            className="text-xs font-mono px-2 py-1 border border-slate-300 dark:border-slate-700 rounded text-slate-600 dark:text-slate-400 cursor-pointer"
+            className="text-xs font-mono px-2 py-1 border border-[var(--color-border)] rounded text-[var(--color-text-muted)] cursor-pointer"
+            aria-label={ui('switchLang', lang)}
           >
             {lang === 'ja' ? 'EN' : 'JA'}
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex flex-col gap-1.5 p-2 cursor-pointer"
-            aria-label={lang === 'ja' ? 'メニューを開く' : 'Open menu'}
+            aria-label={ui('openMenu', lang)}
             aria-expanded={isOpen}
           >
-            <span className={`block w-5 h-0.5 bg-slate-600 dark:bg-slate-300 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-5 h-0.5 bg-slate-600 dark:bg-slate-300 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-5 h-0.5 bg-slate-600 dark:bg-slate-300 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-[var(--color-text-muted)] transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-[var(--color-text-muted)] transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-5 h-0.5 bg-[var(--color-text-muted)] transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </nav>
 
       {/* モバイルメニュー */}
-      <div className={`sm:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-72 border-t border-slate-200 dark:border-slate-800' : 'max-h-0'}`}>
-        <ul className="flex flex-col py-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+      <div className={`sm:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-72 border-t border-[var(--color-border)]' : 'max-h-0'}`}>
+        <ul className="flex flex-col py-2 bg-[var(--color-bg)]/95 backdrop-blur-md">
           {navKeys.map((key) => (
             <li key={key}>
               <a
                 href={`#${key}`}
                 onClick={() => setIsOpen(false)}
-                className="block px-6 py-3 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors"
+                className="block px-6 py-3 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)] transition-colors"
               >
                 {ui(key, lang)}
               </a>

@@ -5,6 +5,21 @@ import { ui } from '../../data/ui-text'
 import { FadeInOnScroll } from '../common/FadeInOnScroll'
 import { SectionHeading } from '../ui/SectionHeading'
 
+const contactCtas = [
+  {
+    label: { ja: '新規プロダクト開発の相談', en: 'Discuss a new product' },
+    subject: { ja: '新規プロダクト開発のご相談', en: 'New product development inquiry' },
+  },
+  {
+    label: { ja: '技術的な質問・相談', en: 'Technical question' },
+    subject: { ja: '技術的なご質問・ご相談', en: 'Technical question / consultation' },
+  },
+  {
+    label: { ja: 'その他のお問い合わせ', en: 'Other inquiries' },
+    subject: { ja: 'お問い合わせ', en: 'General inquiry' },
+  },
+] as const
+
 export function Contact() {
   const { lang } = useLang()
   const [copied, setCopied] = useState(false)
@@ -17,37 +32,50 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-6 bg-slate-100/50 dark:bg-slate-800/30">
+    <section id="contact" className="py-20 px-6 bg-[var(--color-bg)] border-t border-[var(--color-border)]/50">
       <FadeInOnScroll>
         <SectionHeading>Contact</SectionHeading>
-        <div className="max-w-md mx-auto text-center space-y-4">
-          <p className="text-slate-500 dark:text-slate-400">
+        <div className="max-w-md mx-auto text-center space-y-6">
+          <p className="font-mono text-xs text-[var(--color-text-faint)] tracking-wider">
+            — SAVE &amp; QUIT? —
+          </p>
+          <p className="text-[var(--color-text-muted)]">
             {ui('contactMessage', lang)}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+          {/* 目的別CTA */}
+          <div className="space-y-2">
+            {contactCtas.map((cta, i) => (
+              <a
+                key={i}
+                href={`mailto:${profile.email}?subject=${encodeURIComponent(cta.subject[lang] ?? cta.subject.ja)}`}
+                className="block w-full px-5 py-3 font-mono text-sm text-left bg-[var(--color-card)] text-[var(--color-text)] border border-[var(--color-border)] rounded-md hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+              >
+                <span className="text-[var(--color-text-faint)] mr-2">[{i + 1}]</span>
+                {cta.label[lang] ?? cta.label.ja}
+              </a>
+            ))}
+          </div>
+
+          {/* GitHub + コピー */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <a
               href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-lg hover:border-sky-400 hover:text-sky-400 transition-colors"
+              className="px-6 py-2.5 bg-[var(--color-card)] text-[var(--color-text)] border border-[var(--color-border)] rounded-md hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
             >
               GitHub
             </a>
-            <a
-              href={`mailto:${profile.email}`}
-              className="px-6 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-lg hover:border-sky-400 hover:text-sky-400 transition-colors"
+            <button
+              onClick={copyEmail}
+              className="text-xs text-[var(--color-text-faint)] hover:text-[var(--color-accent)] transition-colors cursor-pointer"
             >
-              Email
-            </a>
+              {copied
+                ? (lang === 'ja' ? 'コピーしました' : 'Copied!')
+                : (lang === 'ja' ? 'メールアドレスをコピー' : 'Copy email address')}
+            </button>
           </div>
-          <button
-            onClick={copyEmail}
-            className="text-xs text-slate-400 hover:text-sky-500 transition-colors cursor-pointer"
-          >
-            {copied
-              ? (lang === 'ja' ? 'コピーしました' : 'Copied!')
-              : (lang === 'ja' ? 'メールアドレスをコピー' : 'Copy email address')}
-          </button>
         </div>
       </FadeInOnScroll>
     </section>

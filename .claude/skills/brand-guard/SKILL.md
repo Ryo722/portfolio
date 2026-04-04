@@ -7,6 +7,7 @@
 - デプロイ前チェック（deploy-checker から呼び出し）
 
 ## 参照
+- `docs/architecture/portfolio-soul.md`（トーン・人間性の基盤定義）
 - `docs/architecture/brand-book.md`
 
 ## チェック項目
