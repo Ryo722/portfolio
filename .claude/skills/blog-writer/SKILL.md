@@ -60,3 +60,4 @@ excerpt:
 ## 常時適用
 - `blog-voice` スキル（トーン・文体）
 - `brand-guard` スキル（ブランド整合性）
+- `docs/architecture/portfolio-soul.md`（作り手の人間性定義）

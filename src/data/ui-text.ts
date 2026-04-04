@@ -12,9 +12,17 @@ const texts = {
   highlights: { ja: '工夫した点', en: 'Highlights' },
   designDecisions: { ja: '設計判断', en: 'Design Decisions' },
   relatedArticle: { ja: '関連記事', en: 'Related Article' },
-  contactMessage: { ja: 'お仕事のご相談やご質問はお気軽にどうぞ。', en: 'Feel free to reach out for work inquiries or questions.' },
+  relatedProject: { ja: '関連プロジェクト', en: 'Related Project' },
+  contactMessage: { ja: '一緒に新しいことを形にしませんか。お気軽にご連絡ください。', en: 'Want to build something new together? Feel free to reach out.' },
   notesDescription: { ja: '開発で学んだことや考えたことを書いています。', en: 'Writing about things I learned and thought about through development.' },
   comingSoon: { ja: '近日公開', en: 'Coming Soon' },
+  category: { ja: 'カテゴリ', en: 'Category' },
+  visibility: { ja: '公開状態', en: 'Visibility' },
+  visibilityPublic: { ja: '公開', en: 'Public' },
+  visibilityPrivate: { ja: '非公開', en: 'Private' },
+  toggleTheme: { ja: 'テーマ切替', en: 'Toggle theme' },
+  switchLang: { ja: '言語を切り替え', en: 'Switch language' },
+  openMenu: { ja: 'メニューを開く', en: 'Open menu' },
 } as const
 
 export function ui(key: keyof typeof texts, lang: Lang): string {

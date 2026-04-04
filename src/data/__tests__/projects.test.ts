@@ -95,3 +95,87 @@ describe('projects データ整合性', () => {
     }
   })
 })
+
+describe('projects description 品質（portfolio-soul準拠）', () => {
+  it('全プロジェクトの description に ja と en の両方が存在する', () => {
+    for (const p of projects) {
+      expect(p.description.ja, `${p.slug}: description.ja が空`).toBeTruthy()
+      expect(p.description.en, `${p.slug}: description.en が空`).toBeTruthy()
+    }
+  })
+
+  it('description(ja) が十分な長さである（100字以上）', () => {
+    for (const p of projects) {
+      expect(
+        p.description.ja.length,
+        `${p.slug}: description.ja が短すぎる（${p.description.ja.length}字）`,
+      ).toBeGreaterThanOrEqual(100)
+    }
+  })
+
+  it('description(ja) に動機を示す表現が含まれる', () => {
+    // portfolio-soul.md: 「なぜ作ったか」（個人的な動機）を盛り込む
+    // 動機を示す表現パターン: 理由・きっかけ・目的・欲求・感情などが読み取れる表現
+    const motivationPatterns = [
+      /作りたかった/,
+      /作りたい/,
+      /欲し[いかった]/,
+      /きっかけ/,
+      /面白そう/,
+      /楽し[いかっみ]/,
+      /ワクワク/,
+      /好き/,
+      /ため[にの]/,
+      /したくて/,
+      /したかった/,
+      /必要/,
+      /困って/,
+      /不便/,
+      /もっと/,
+      /自分[がのも]/,
+      /思[いっ]/, // 「〜と思った」「〜思い立ち」
+      /懐かし/,
+      /復活/,
+      /再構築/,
+      /知りたかった/,
+      /試したかった/,
+      /挑戦/,
+      /興味/,
+      /動機/,
+      /理由/,
+      /原点/,
+      /支援/,
+      /解決/,
+    ]
+
+    for (const p of projects) {
+      const hasMotivation = motivationPatterns.some((pattern) => pattern.test(p.description.ja))
+      expect(
+        hasMotivation,
+        `${p.slug}: description.ja に動機を示す表現が見つからない。portfolio-soul.md では「なぜ作ったか」の記載が必要`,
+      ).toBe(true)
+    }
+  })
+
+  it('description(ja) が就活テンプレ表現を含まない', () => {
+    // portfolio-soul.md の禁止表現リスト
+    const forbiddenPatterns = [
+      'イノベーションを推進',
+      'ソリューションを提供',
+      'シナジーを生む',
+      'プロアクティブに',
+      'パッションを持って',
+      '幅広い経験を活かし',
+    ]
+    // 「〜に貢献したい」（具体性なし）も禁止だが、具体性がある場合はOKなので除外
+
+    for (const p of projects) {
+      for (const forbidden of forbiddenPatterns) {
+        expect(
+          p.description.ja.includes(forbidden),
+          `${p.slug}: description.ja に禁止表現「${forbidden}」が含まれている`,
+        ).toBe(false)
+      }
+    }
+  })
+})

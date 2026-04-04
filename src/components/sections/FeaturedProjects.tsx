@@ -13,7 +13,7 @@ function CaseStudyCard({ project }: { project: Project }) {
     : null
 
   return (
-    <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+    <div className="border border-[var(--color-border)] rounded-lg overflow-hidden bg-[var(--color-card)] transition-all duration-300 hover:border-[var(--color-accent)]/40" style={{ boxShadow: 'var(--shadow-card)' }} onMouseEnter={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)' }} onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-card)' }}>
       {/* ヘッダー画像 */}
       {project.image && (
         <div className="h-48 sm:h-56">
@@ -31,75 +31,91 @@ function CaseStudyCard({ project }: { project: Project }) {
       <div className="p-6 sm:p-8">
         {/* タイトル + バッジ */}
         <div className="flex items-start justify-between gap-3 mb-3">
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-50">
+          <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text)]">
             {t(project.name, lang)}
           </h3>
-          <span className="shrink-0 text-xs px-2.5 py-1 bg-sky-400/10 text-sky-500 rounded-full border border-sky-400/20 font-medium">
+          <span className="shrink-0 text-xs px-2.5 py-1 text-[var(--color-accent)] rounded border border-[var(--color-accent)]/30 font-mono">
             {ui('featured', lang)}
           </span>
         </div>
 
-        <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-5">
+        <p className="text-[var(--color-text-muted)] text-sm leading-relaxed mb-5">
           {t(project.summary, lang)}
         </p>
 
-        {/* 数値指標 */}
+        {/* 数値指標: ステータス画面風ドットリーダー + ミニバー */}
         {project.scale && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-            {Object.entries(project.scale).map(([label, value]) => (
-              <div key={label} className="text-center p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700">
-                <div className="text-lg font-bold text-sky-500 font-mono">{value}</div>
-                <div className="text-xs text-slate-400">{label}</div>
-              </div>
-            ))}
+          <div className="mb-6 space-y-2.5">
+            {Object.entries(project.scale).map(([label, value], _i, arr) => {
+              // 数値を抽出してバー幅を算出（最大値を100%としたスケール）
+              const numericValue = parseInt(String(value).replace(/[^0-9]/g, ''), 10) || 0
+              const maxValue = Math.max(...arr.map(([, v]) => parseInt(String(v).replace(/[^0-9]/g, ''), 10) || 0))
+              const barPercent = maxValue > 0 ? Math.max(8, (numericValue / maxValue) * 100) : 0
+
+              return (
+                <div key={label}>
+                  <div className="flex items-baseline font-mono text-sm">
+                    <span className="text-[var(--color-text-faint)] shrink-0">{label}</span>
+                    <span className="flex-1 mx-2 border-b border-dotted border-[var(--color-border)]" />
+                    <span className="text-[var(--color-accent)] font-bold shrink-0">{value}</span>
+                  </div>
+                  <div className="mt-1 h-1 rounded-full bg-[var(--color-border)]/50 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-[var(--color-accent)]/40"
+                      style={{ width: `${barPercent}%` }}
+                    />
+                  </div>
+                </div>
+              )
+            })}
           </div>
         )}
 
         {/* 設計判断 */}
         {project.designDecisions && project.designDecisions.length > 0 && (
           <div className="mb-6">
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-3">
+            <h4 className="text-sm font-semibold text-[var(--color-text)] mb-3 font-mono">
               {ui('designDecisions', lang)}
             </h4>
             <div className="space-y-2.5">
               {project.designDecisions.map((d, i) => (
-                <div key={i} className="bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-3">
-                  <div className="text-sm font-semibold text-sky-500 mb-1">{t(d.title, lang)}</div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{t(d.reasoning, lang)}</p>
+                <div key={i} className="bg-[var(--color-surface)] rounded-lg border border-[var(--color-border)] p-3">
+                  <div className="text-sm font-semibold text-[var(--color-accent)] mb-1">{t(d.title, lang)}</div>
+                  <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">{t(d.reasoning, lang)}</p>
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* テックスタック */}
+        {/* テックスタック: ブラケット表示 */}
         <div className="flex flex-wrap gap-1.5 mb-5">
           {project.techStack.map((tech) => (
-            <span key={tech} className="text-xs px-2 py-0.5 font-mono bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 rounded border border-slate-200 dark:border-slate-700">
-              {tech}
+            <span key={tech} className="text-xs px-2 py-0.5 font-mono text-[var(--color-text-muted)] bg-[var(--color-surface)] rounded border border-[var(--color-border)]">
+              [{tech}]
             </span>
           ))}
         </div>
 
         {/* リンク群 */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3 text-sm">
           {project.githubUrl && (
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-sky-500 hover:text-sky-400 transition-colors">
-              GitHub
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors font-mono">
+              ▶ GitHub
             </a>
           )}
           {project.demoUrl && (
-            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-sm px-4 py-1.5 bg-sky-400/10 text-sky-500 rounded-lg border border-sky-400/20 hover:bg-sky-400/20 transition-colors font-medium">
-              {lang === 'ja' ? 'デモを試す' : 'Try Demo'}
+            <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-1.5 text-[var(--color-accent)] rounded-lg border border-[var(--color-accent)]/30 hover:border-[var(--color-accent)]/60 transition-colors font-mono">
+              ▶ Demo
             </a>
           )}
           {relatedPost && relatedPost.url && (
-            <a href={`#notes`} className="text-sm text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors">
+            <a href="#notes" className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
               {ui('relatedArticle', lang)} →
             </a>
           )}
           {project.visibility === 'private' && (
-            <span className="text-xs text-slate-400">Private</span>
+            <span className="text-xs text-[var(--color-text-faint)] font-mono">Private</span>
           )}
         </div>
       </div>
@@ -111,13 +127,13 @@ export function FeaturedProjects() {
   const featuredProjects = projects.filter((p) => p.featured)
 
   return (
-    <section id="projects" className="py-20 px-6 bg-slate-100/50 dark:bg-slate-800/30">
+    <section id="projects" className="py-20 px-6 bg-[var(--color-surface)] border-t border-[var(--color-border)]/50">
       <FadeInOnScroll>
         <SectionHeading>Featured Projects</SectionHeading>
       </FadeInOnScroll>
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {featuredProjects.map((project) => (
-          <FadeInOnScroll key={project.slug}>
+        {featuredProjects.map((project, index) => (
+          <FadeInOnScroll key={project.slug} delay={index * 100}>
             <CaseStudyCard project={project} />
           </FadeInOnScroll>
         ))}

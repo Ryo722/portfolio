@@ -1,5 +1,7 @@
 # ブランドブック — Ryo722 Portfolio
 
+> 上位概念: [portfolio-soul.md](./portfolio-soul.md)（作り手の人間性・トーンの基盤定義）
+
 ## コンセプト
 
 「AIと一緒に、アイデアを形にする開発者」
@@ -33,9 +35,38 @@
 
 ## ビジュアル
 
+### デザインコンセプト
+
+「無印良品 × ゲームのセーブ画面」
+— 余白と素材感で"静かな信頼"を伝えつつ、ステータス表示やカード型UIでゲーム的なワクワク感を演出する。
+
 ### カラーパレット
-- ダーク: slate-900 / slate-800 / sky-400 / indigo-400
-- ライト: white / slate-100 / sky-500 / indigo-500
+
+**ライトモード:**
+| 役割 | カラー | 値 |
+|---|---|---|
+| bg | 背景 | #FAF8F5 |
+| surface | セクション背景 | #F3F0EB |
+| card | カード背景 | #FFFFFF |
+| border | 境界線 | #E8E4DE |
+| text | 本文 | #2C2825 |
+| text-muted | 補助テキスト | #8A8279 |
+| text-faint | 薄いテキスト | #B0A99F |
+| accent | アクセント（sage green） | #7C9885 |
+| sub-accent | サブアクセント（craft brown） | #A68B6B |
+
+**ダークモード:**
+| 役割 | カラー | 値 |
+|---|---|---|
+| bg | 背景 | #1A1816 |
+| surface | セクション背景 | #242120 |
+| card | カード背景 | #2A2725 |
+| border | 境界線 | #3D3935 |
+| text | 本文 | #EDE9E3 |
+| text-muted | 補助テキスト | #9B9389 |
+| text-faint | 薄いテキスト | #6B6560 |
+| accent | アクセント（sage green） | #8FB39A |
+| sub-accent | サブアクセント（craft brown） | #C4A882 |
 
 ### フォント
 - 見出し: Inter + Noto Sans JP (700)

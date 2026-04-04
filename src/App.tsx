@@ -9,9 +9,12 @@ import { Hero } from './components/sections/Hero'
 import { FeaturedProjects } from './components/sections/FeaturedProjects'
 import { Skills } from './components/sections/Skills'
 import { About } from './components/sections/About'
+import { Timeline } from './components/sections/Timeline'
 import { Projects } from './components/sections/Projects'
 import { Notes } from './components/sections/Notes'
+import { Faq } from './components/sections/Faq'
 import { Contact } from './components/sections/Contact'
+import { ScrollToTop } from './components/ui/ScrollToTop'
 
 export default function App() {
   const [lang, setLang] = useState<Lang>(() => {
@@ -42,11 +45,14 @@ export default function App() {
           <FeaturedProjects />
           <Skills />
           <About />
+          <Timeline />
           <Projects />
           <Notes />
+          <Faq />
           <Contact />
         </main>
         <Footer />
+        <ScrollToTop />
       </ThemeContext.Provider>
     </LangContext.Provider>
   )
