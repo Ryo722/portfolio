@@ -14,6 +14,7 @@ import { Projects } from './components/sections/Projects'
 import { Notes } from './components/sections/Notes'
 import { Faq } from './components/sections/Faq'
 import { Contact } from './components/sections/Contact'
+import { HundredKnock } from './components/sections/HundredKnock'
 import { ScrollToTop } from './components/ui/ScrollToTop'
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
         <Header />
         <main>
           <Hero />
+          <HundredKnock />
           <FeaturedProjects />
           <Skills />
           <About />
