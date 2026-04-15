@@ -287,7 +287,7 @@ export const projects: Project[] = [
     githubUrl: null,
     demoUrl: null,
     image: '/portfolio/images/projects/torabo-tsuki-case.png',
-    visibility: 'public',
+    visibility: 'private',
     relatedNotes: ['torabo-tsuki-case'],
   },
 ]
