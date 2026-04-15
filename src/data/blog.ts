@@ -181,4 +181,34 @@ export const blogPosts: BlogPost[] = [
     url: '/portfolio/blog/easypngtuber-contribution.md',
     enUrl: '/portfolio/blog/en/easypngtuber-contribution.md',
   },
+  {
+    slug: 'torabo-tsuki-case',
+    title: {
+      ja: 'torabo-tsuki LP XSのケースをBlender MCPで自作した話',
+      en: 'Building a Custom Case for torabo-tsuki LP XS with Blender MCP',
+    },
+    date: '2026-04-13',
+    tags: ['自作キーボード', '3Dプリント', 'Blender', 'AI'],
+    excerpt: {
+      ja: 'キーケット2026で購入したtorabo-tsuki LP XS用に、チルトスタンド対応・マグネット接続のケースをBlender MCPで設計し、3Dプリントした制作記録。',
+      en: 'A build log of designing a custom case with tilt stand support and magnetic connection for the torabo-tsuki LP XS split keyboard, using Blender MCP and 3D printing.',
+    },
+    url: '/portfolio/blog/torabo-tsuki-case.md',
+    enUrl: '/portfolio/blog/en/torabo-tsuki-case.md',
+  },
+  {
+    slug: 'torabo-tsuki-keymap',
+    title: {
+      ja: 'torabo-tsuki LP XSのキーマップを育てている話',
+      en: 'Growing My Keymap for the torabo-tsuki LP XS',
+    },
+    date: '2026-04-15',
+    tags: ['自作キーボード', 'ZMK', 'キーマップ', 'AI'],
+    excerpt: {
+      ja: 'torabo-tsuki LP XSのZMKキーマップを14回チューニングして現在の形にするまでの記録。hold-tapの調整、コンボ、レイヤー設計の試行錯誤。',
+      en: 'A record of 14 tuning iterations on the torabo-tsuki LP XS ZMK keymap — hold-tap timing, combos, layer design, and the trial-and-error process.',
+    },
+    url: '/portfolio/blog/torabo-tsuki-keymap.md',
+    enUrl: '/portfolio/blog/en/torabo-tsuki-keymap.md',
+  },
 ]

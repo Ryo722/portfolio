@@ -87,5 +87,14 @@ export const knockChallenge: KnockChallenge = {
       portfolioSlug: 'cafenavi',
       techStack: ['React', 'TypeScript', 'Google Maps API'],
     },
+    {
+      id: 9,
+      name: 'torabo-tsuki LP XS カスタムケース',
+      category: 'other',
+      date: '2026-04-13',
+      description: '自作キーボード用ケースをBlender MCPで設計し3Dプリント',
+      portfolioSlug: 'torabo-tsuki-case',
+      techStack: ['Blender', 'Blender MCP', 'Claude', '3D Printing'],
+    },
   ],
 }

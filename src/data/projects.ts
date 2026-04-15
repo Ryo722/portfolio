@@ -262,4 +262,32 @@ export const projects: Project[] = [
       'テスト数': '82（Unit 68 + E2E 14）',
     },
   },
+  {
+    slug: 'torabo-tsuki-case',
+    name: {
+      ja: 'torabo-tsuki LP XS カスタムケース',
+      en: 'torabo-tsuki LP XS Custom Case',
+    },
+    category: 'ハードウェア / 3Dプリント',
+    summary: {
+      ja: '自作キーボード用ケースをBlender MCP × 3Dプリントで制作',
+      en: 'Custom keyboard case designed with Blender MCP and 3D printed',
+    },
+    description: {
+      ja: `キーケット2026で購入したtorabo-tsuki LP XS用に、チルトスタンド収納・マグネット接続に対応したケースをBlender MCPで設計し、3Dプリントで出力した。\n\n既存ケースにはチルトスタンドの窪みやマグネットを埋め込む厚みがなく、「ないなら作ればいい」と挑戦した。Blenderの操作経験はなかったが、Blender MCP経由でClaudeに自然言語で指示し、トライ&エラーを繰り返して完成させた。左手v11・右手v4の計15回のイテレーションを経て、約11日間で完成。キーキャップもRidge-cap（STL）を印刷角度を工夫して出力した。`,
+      en: `Designed a custom case for the torabo-tsuki LP XS split keyboard purchased at Keeket 2026. The case features tilt stand pockets and magnetic connection between halves, designed with Blender MCP and 3D printed with PLA Tough Plus.\n\nThe stock case was too thin for tilt stand pockets or embedded magnets. With zero Blender experience, I used Blender MCP to control Blender via natural language through Claude. Completed after 15 iterations (left v11, right v4) over about 11 days. Also printed Ridge-cap keycaps with optimized print angles.`,
+    },
+    techStack: ['Blender', 'Blender MCP', 'Claude', 'Bambu Lab A1 mini', 'PLA Tough Plus'],
+    highlights: [
+      { ja: 'Blender未経験からAI連携でケース設計', en: 'Case design from zero Blender experience using AI' },
+      { ja: 'チルトスタンド収納 + マグネット接続', en: 'Tilt stand pockets + magnetic case connection' },
+      { ja: '左手v11・右手v4、計15回のイテレーション', en: '15 total iterations (left v11, right v4)' },
+      { ja: 'Ridge-capキーキャップも印刷角度を工夫して出力', en: 'Ridge-cap keycaps printed with optimized angles' },
+    ],
+    githubUrl: null,
+    demoUrl: null,
+    image: '/portfolio/images/projects/torabo-tsuki-case.png',
+    visibility: 'public',
+    relatedNotes: ['torabo-tsuki-case'],
+  },
 ]
