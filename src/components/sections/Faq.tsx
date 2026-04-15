@@ -6,7 +6,7 @@ import { SectionHeading } from '../ui/SectionHeading'
 const faqItems = [
   {
     q: { ja: 'フリーランスですか？', en: 'Are you a freelancer?' },
-    a: { ja: '個人開発者です。お仕事のご相談はお気軽にどうぞ。', en: 'I\'m an independent developer. Feel free to reach out about work.' },
+    a: { ja: 'いいえ、IT企業でシステムエンジニアとして勤務しています。ここに載せているプロダクトは業務外の個人開発です。', en: 'No, I work as a systems engineer at an IT company. The products shown here are personal projects built outside of work.' },
   },
   {
     q: { ja: 'どの言語が得意ですか？', en: 'What languages are you best at?' },
@@ -14,7 +14,7 @@ const faqItems = [
   },
   {
     q: { ja: 'チーム開発の経験はありますか？', en: 'Do you have team development experience?' },
-    a: { ja: '個人開発が中心ですが、AIをフル活用したチーム運営の経験があります。', en: 'Mostly solo development, but I have experience running a team fully leveraging AI.' },
+    a: { ja: '本業でチーム開発に携わっています。個人開発ではAIをフル活用した一人開発が中心です。', en: 'I work in team development at my day job. Personal projects are mostly solo, fully leveraging AI.' },
   },
 ] as const
 

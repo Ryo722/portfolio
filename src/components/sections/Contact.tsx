@@ -7,8 +7,8 @@ import { SectionHeading } from '../ui/SectionHeading'
 
 const contactCtas = [
   {
-    label: { ja: '新規プロダクト開発の相談', en: 'Discuss a new product' },
-    subject: { ja: '新規プロダクト開発のご相談', en: 'New product development inquiry' },
+    label: { ja: '採用・転職に関するご連絡', en: 'Recruitment / career opportunities' },
+    subject: { ja: '採用に関するご連絡', en: 'Recruitment inquiry' },
   },
   {
     label: { ja: '技術的な質問・相談', en: 'Technical question' },

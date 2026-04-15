@@ -13,7 +13,7 @@ const texts = {
   designDecisions: { ja: '設計判断', en: 'Design Decisions' },
   relatedArticle: { ja: '関連記事', en: 'Related Article' },
   relatedProject: { ja: '関連プロジェクト', en: 'Related Project' },
-  contactMessage: { ja: '一緒に新しいことを形にしませんか。お気軽にご連絡ください。', en: 'Want to build something new together? Feel free to reach out.' },
+  contactMessage: { ja: 'ご興味をお持ちいただけましたら、お気軽にご連絡ください。', en: 'If anything here caught your interest, feel free to reach out.' },
   notesDescription: { ja: '開発で学んだことや考えたことを書いています。', en: 'Writing about things I learned and thought about through development.' },
   comingSoon: { ja: '近日公開', en: 'Coming Soon' },
   category: { ja: 'カテゴリ', en: 'Category' },
