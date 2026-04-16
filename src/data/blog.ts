@@ -211,4 +211,19 @@ export const blogPosts: BlogPost[] = [
     url: '/portfolio/blog/torabo-tsuki-keymap.md',
     enUrl: '/portfolio/blog/en/torabo-tsuki-keymap.md',
   },
+  {
+    slug: 'claude-code-security-architecture',
+    title: {
+      ja: 'Claude Codeに多層のセキュリティを設計した話',
+      en: 'Designing Multi-Layered Security for Claude Code',
+    },
+    date: '2026-04-16',
+    tags: ['Security', 'AI', 'Claude Code', 'DevSecOps', 'Automation'],
+    excerpt: {
+      ja: 'AIと開発していたら、秘密情報の扱いが怖くなった。承認UIを押す注意力に頼るのをやめて、人間が何もしなくても安全が保たれる多層防御をAIと一緒に設計した記録。',
+      en: 'Working with AI made me realize how scary secret handling can be. Instead of relying on approval dialogs, I designed multi-layered defenses with AI that stay safe without human attention.',
+    },
+    url: '/portfolio/blog/claude-code-security-architecture.md',
+    enUrl: '/portfolio/blog/en/claude-code-security-architecture.md',
+  },
 ]
