@@ -226,4 +226,34 @@ export const blogPosts: BlogPost[] = [
     url: '/portfolio/blog/claude-code-security-architecture.md',
     enUrl: '/portfolio/blog/en/claude-code-security-architecture.md',
   },
+  {
+    slug: 'pokemon-champions-cli-tried-but-fell-short',
+    title: {
+      ja: '「勝てるパーティを自動で出すツール」を作ってみたら、勝率5割で寝かせることにした話',
+      en: "I built a 'tool that auto-generates winning parties' for Pokemon Champions — and shelved it at 50% win-rate",
+    },
+    date: '2026-05-01',
+    tags: ['Pokemon', 'CLI', 'AI', '振り返り'],
+    excerpt: {
+      ja: '上位30匹に勝てる6匹を自動で出す個人ツールを作った。カバー率93%のパーティが出てきて満足していたら、実戦に持ち込んだ瞬間に5割で詰まった。何がうまくいかなかったかの振り返り。',
+      en: 'I built a personal tool that auto-generates 6-Pokemon parties to beat the top-30 metagame. The 93% coverage parties looked great — until I actually used them and got stuck at a 50% win-rate. A retrospective on what didn\'t work.',
+    },
+    url: '/portfolio/blog/pokemon-champions-cli-tried-but-fell-short.md',
+    enUrl: '/portfolio/blog/en/pokemon-champions-cli-tried-but-fell-short.md',
+  },
+  {
+    slug: 'pokemon-champions-cli-tech-deep-dive',
+    title: {
+      ja: 'ポケモンチャンピオンズCLIの裏側 — @smogon/calc差分・Nash均衡選出・技術的精度を積みすぎた反省',
+      en: 'Inside the Pokemon Champions CLI — @smogon/calc overrides, Nash-equilibrium lineup selection, and the trap of over-engineering with AI',
+    },
+    date: '2026-05-01',
+    tags: ['TypeScript', 'CLI', 'Pokemon', 'Architecture', 'AI開発'],
+    excerpt: {
+      ja: '前作「勝率5割で寝かせた話」の続編・技術編。21 CLI / 3,380テスト / Sprint 63.5 までClaudeと一緒に積み上げた裏側と、技術的精度ばかり詰めて実戦での有効性検証を後回しにしてしまった反省。',
+      en: 'The technical companion to "I shelved it at 50% win-rate." Inside the 21-CLI, 3,380-test, Sprint-63.5 build I shipped with Claude — and an honest look at how chasing engineering rigor with an AI partner pushed real-world validation off my radar.',
+    },
+    url: '/portfolio/blog/pokemon-champions-cli-tech-deep-dive.md',
+    enUrl: '/portfolio/blog/en/pokemon-champions-cli-tech-deep-dive.md',
+  },
 ]

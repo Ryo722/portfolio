@@ -96,5 +96,14 @@ export const knockChallenge: KnockChallenge = {
       portfolioSlug: 'torabo-tsuki-case',
       techStack: ['Blender', 'Blender MCP', 'Claude', '3D Printing'],
     },
+    {
+      id: 10,
+      name: 'ポケモンチャンピオンズ パーティビルダー',
+      category: 'cli',
+      date: '2026-05-01',
+      description: '環境上位30匹に確実有利を取るパーティを自動構築するCLI（21コマンド）',
+      portfolioSlug: 'pokemon-champions-builder',
+      techStack: ['TypeScript', 'Node.js', '@smogon/calc', 'Vitest'],
+    },
   ],
 }

@@ -290,4 +290,38 @@ export const projects: Project[] = [
     visibility: 'private',
     relatedNotes: ['torabo-tsuki-case'],
   },
+  {
+    slug: 'pokemon-champions-builder',
+    name: { ja: 'ポケモンチャンピオンズ パーティビルダー', en: 'Pokémon Champions Party Builder' },
+    category: 'CLI / アルゴリズム',
+    summary: {
+      ja: '環境上位30匹に確実有利を取るパーティを自動構築するCLI',
+      en: 'CLI that auto-builds a 6-Pokémon party with guaranteed advantage against the top 30',
+    },
+    description: {
+      ja: `ポケモンチャンピオンズで「環境上位30匹に確実に有利を取れる6匹」を自分で組みたかった。だが種族値・採用率・ビルド・タイプ相性・能力ポイント配分を全探索すると数万〜数百万通りの組合せになり、手で計算するのは現実的に不便だった。だから自動化した。\n\n@smogon/calc をチャンピオンズ仕様（Lv50固定・IV31固定・AP66pt・メガ+テラ+ギガンタマックス共存）で拡張し、全探索/遺伝的アルゴリズムでパーティ構築、6v6 SwitchingGameのDP+Nash均衡で選出最適化、Jeffreys近似CI+meta-divergenceで戦績学習までを21 CLI/5カテゴリでカバーする。\n\nSprint 41-64.9をCodex 2段階レビューで通算27/27 GO相当。IEEE 754 deterministic値を27 Sprint不変に保ち、8層trace多重防御で品質を維持している、個人OSSとしては異例の運用基準を持つツール。`,
+      en: `I wanted to build a 6-Pokémon team that guarantees type advantage against the top 30 in Pokémon Champions. But base stats, usage rates, builds, type matchups, and AP allocation produce hundreds of thousands of combinations — infeasible to compute by hand. So I automated it.\n\nExtended @smogon/calc with Champions-specific rules (Lv50 / IV31 / AP66 / Mega+Tera+Gigantamax coexistence). Built party construction (exhaustive / GA), lineup optimization (6v6 SwitchingGame DP + Nash equilibrium over a 20×20 payoff matrix), and battle log learning (Jeffreys CI + meta-divergence) — packaged as 21 CLIs across 5 categories.\n\nMaintained 27/27 GO equivalents via Codex 2-stage review across Sprint 41-64.9 while keeping the IEEE 754 deterministic value bit-exact across 27 sprints with 8-layer trace defenses — a quality bar unusual for personal OSS.`,
+    },
+    techStack: ['TypeScript', 'Node.js', '@smogon/calc', 'commander', 'zod', 'Vitest', 'GitHub Actions'],
+    highlights: [
+      { ja: '環境上位30匹に確実有利な6匹を全探索/GAで自動構築', en: 'Auto-build 6 Pokémon with guaranteed advantage against top 30 via exhaustive search / GA' },
+      { ja: '6v6 SwitchingGameのDP + Nash均衡で C(6,3)=20通り選出最適化', en: 'C(6,3)=20 lineup optimization via SwitchingGame DP + Nash equilibrium' },
+      { ja: 'PackedPokemon[3]=51 uint32 + two-level WeakMap cacheで省メモリ化', en: 'Packed state (51 uint32) + two-level WeakMap cache for memory efficiency' },
+      { ja: 'IEEE 754 deterministic値を27 Sprint不変 + 8層trace多重防御', en: 'IEEE 754 determinism preserved across 27 sprints with 8-layer trace defenses' },
+      { ja: 'Codex 2段階レビューで27/27 GO相当を達成', en: '27/27 GO equivalents via Codex 2-stage review pipeline' },
+      { ja: 'Nightly perf CI（PERF_GATE_MS=1500 / IQR 6-18ms）で性能回帰検出', en: 'Nightly perf CI (PERF_GATE_MS=1500 / IQR 6-18ms) for regression detection' },
+    ],
+    githubUrl: null,
+    demoUrl: null,
+    image: '/portfolio/images/projects/pokemon-champions-builder.png',
+    visibility: 'private',
+    scale: {
+      'コミット数': '438',
+      'CLI本数': '21',
+      'テスト数': '3,560+',
+      'Sprint数': '64.9',
+    },
+    featured: true,
+    relatedNotes: ['pokemon-champions-cli-tried-but-fell-short', 'pokemon-champions-cli-tech-deep-dive'],
+  },
 ]
