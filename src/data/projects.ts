@@ -324,4 +324,33 @@ export const projects: Project[] = [
     featured: true,
     relatedNotes: ['pokemon-champions-cli-tried-but-fell-short', 'pokemon-champions-cli-tech-deep-dive'],
   },
+  {
+    slug: 'youtube-period-sorter',
+    name: {
+      ja: 'YouTube 期間別人気動画ソーター',
+      en: 'YouTube Period Popular Sorter',
+    },
+    category: 'ブラウザ拡張 / ツール',
+    summary: {
+      ja: 'YouTubeの「期間×人気順」絞り込みを補完するChrome拡張',
+      en: 'Chrome extension that fills the "period × popularity" gap on YouTube',
+    },
+    description: {
+      ja: `好きなYouTuberの「ここ最近の代表作」をまとめて見たかった。だがYouTubeの公式UIには「特定の期間 × 人気順」で絞り込む機能がない。チャンネルページの「人気の動画」は全期間の累積で、新参登録者には古い動画ばかり並ぶ。逆に新着順は再生数を無視するので「外れ」が混ざる。\n\n自分用にこの空白を埋めるためのChrome拡張を作った。チャンネルページを開いた状態で拡張アイコンを押せば、過去24時間〜1年〜全期間のプリセットから選んで、再生回数・高評価・コメント数・投稿日のいずれかで並び替えられる。最大100件まで取得し、CSV/TSVでエクスポートもできる。\n\nYouTube Data API v3 を直接叩くシンプルなMV3拡張。24時間ローカルキャッシュで同条件の再検索はクォータを消費しない。Chrome Web Store公開前にClaude (Opus) と Codex (gpt-5.4) で敵対的セキュリティレビューを実施し、CSV/TSV Formula Injection・APIキー漏洩耐性・サムネイルURL検証など Critical/High 3件 + Medium 3件 + Low 3件を全修正してから公開した。`,
+      en: `I wanted to round up "the recent hits" from my favorite YouTubers in one view. But YouTube's native UI has no way to filter "popular videos within a custom time range." The "Popular" tab is all-time cumulative, so new subscribers only see old uploads. Sort-by-newest ignores view count entirely, mixing in misses.\n\nSo I built a Chrome extension to fill the gap for myself. Open a channel page, click the extension icon, pick a preset (last 24h to all-time), and sort by views, likes, comments, or publish date. Fetches up to 100 results and exports to CSV/TSV.\n\nA simple MV3 extension that calls YouTube Data API v3 directly. A 24-hour local cache means repeat queries don't burn quota. Before publishing to the Chrome Web Store, I ran an adversarial security review with Claude (Opus) and Codex (gpt-5.4), fixing 3 Critical/High + 3 Medium + 3 Low issues — including CSV/TSV formula injection, API key leakage resistance, and thumbnail URL validation.`,
+    },
+    techStack: ['JavaScript', 'Chrome Extension MV3', 'YouTube Data API v3', 'Service Worker'],
+    highlights: [
+      { ja: '期間プリセット7種 × 並び順4種で柔軟な絞り込み', en: '7 period presets × 4 sort modes for flexible filtering' },
+      { ja: '24時間ローカルキャッシュ（最大30エントリ）でAPIクォータ節約', en: '24h local cache (up to 30 entries) to preserve API quota' },
+      { ja: 'CSV (BOM付UTF-8) / TSV エクスポート、Formula Injection対策済み', en: 'CSV (UTF-8 with BOM) / TSV export with formula injection mitigation' },
+      { ja: 'Claude × Codex 敵対的セキュリティレビュー (Critical/High 3件全修正)', en: 'Adversarial security review by Claude × Codex (all 3 Critical/High fixed)' },
+      { ja: 'Chrome Web Store 公開済み、ZIP 29KB / 22ファイルのミニマル構成', en: 'Published on Chrome Web Store — minimal 29KB ZIP / 22 files' },
+    ],
+    githubUrl: 'https://github.com/Ryo722/youtube-period-sorter',
+    demoUrl: 'https://chromewebstore.google.com/detail/youtube-%E6%9C%9F%E9%96%93%E5%88%A5%E4%BA%BA%E6%B0%97%E5%8B%95%E7%94%BB%E3%82%BD%E3%83%BC%E3%82%BF%E3%83%BC/gcoblkekjbplafeafmdgcghlcnenfdfp',
+    image: '/portfolio/images/projects/youtube-period-sorter.png',
+    visibility: 'public',
+    relatedNotes: ['youtube-period-sorter'],
+  },
 ]

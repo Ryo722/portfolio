@@ -256,4 +256,19 @@ export const blogPosts: BlogPost[] = [
     url: '/portfolio/blog/pokemon-champions-cli-tech-deep-dive.md',
     enUrl: '/portfolio/blog/en/pokemon-champions-cli-tech-deep-dive.md',
   },
+  {
+    slug: 'youtube-period-sorter',
+    title: {
+      ja: 'YouTubeの「期間×人気順」が公式にないので、自分用のChrome拡張を作った',
+      en: 'YouTube has no "period × popularity" filter — so I built my own Chrome extension',
+    },
+    date: '2026-05-03',
+    tags: ['Chrome Extension', 'JavaScript', 'YouTube API', 'Security Review'],
+    excerpt: {
+      ja: '好きなチャンネルの「最近の代表作だけ人気順で見たい」がYouTube公式UIではできない。空白を埋めるためのChrome拡張をMV3で作り、Claude × Codexの敵対的セキュリティレビューを通してWeb Store公開した記録。',
+      en: 'YouTube\'s native UI can\'t show "recent hits sorted by views" for a channel. I built an MV3 Chrome extension to fill that gap, and shipped it to the Web Store after an adversarial security review by Claude × Codex.',
+    },
+    url: '/portfolio/blog/youtube-period-sorter.md',
+    enUrl: '/portfolio/blog/en/youtube-period-sorter.md',
+  },
 ]
