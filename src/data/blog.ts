@@ -271,4 +271,19 @@ export const blogPosts: BlogPost[] = [
     url: '/portfolio/blog/youtube-period-sorter.md',
     enUrl: '/portfolio/blog/en/youtube-period-sorter.md',
   },
+  {
+    slug: 'youtube-period-sorter-pwa',
+    title: {
+      ja: 'Chrome拡張をPWA化してスマホ対応した話 — 同一コードを拡張とPWAで共有する',
+      en: 'Shipping a Chrome extension as a PWA — sharing the same lib/ between both surfaces',
+    },
+    date: '2026-05-03',
+    tags: ['PWA', 'Chrome Extension', 'Service Worker', 'JavaScript', 'Web Share Target'],
+    excerpt: {
+      ja: 'Chrome Web Store公開後の課題は「スマホで使えない」だった。同じlib/を拡張版とPWA版で共有するため、chrome.* 依存をplatform/backendレイヤに分離して、同一コードベースから2系統のビルドを出せるようにした記録。',
+      en: 'After shipping the Chrome extension, my biggest gap was "I can\'t use it on my phone." I split chrome.* dependencies into platform / backend layers so the same lib/ powers both the extension and a PWA — one codebase, two distributions.',
+    },
+    url: '/portfolio/blog/youtube-period-sorter-pwa.md',
+    enUrl: '/portfolio/blog/en/youtube-period-sorter-pwa.md',
+  },
 ]
