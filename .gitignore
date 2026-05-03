@@ -28,3 +28,10 @@ preview-*.png
 
 # Lighthouse reports (large JSON)
 ops/reports/lighthouse/
+
+# Tool runtime outputs
+.playwright-mcp/
+.takt/
+
+# Legacy preview screenshots
+cafenavi-full.png
