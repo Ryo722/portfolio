@@ -105,5 +105,15 @@ export const knockChallenge: KnockChallenge = {
       portfolioSlug: 'pokemon-champions-builder',
       techStack: ['TypeScript', 'Node.js', '@smogon/calc', 'Vitest'],
     },
+    {
+      id: 11,
+      name: 'YouTube 期間別人気動画ソーター',
+      category: 'chrome-ext',
+      date: '2026-05-03',
+      description: 'YouTubeチャンネル動画を「期間×人気順」で絞り込めるChrome拡張（Web Store公開済）',
+      url: 'https://chromewebstore.google.com/detail/youtube-%E6%9C%9F%E9%96%93%E5%88%A5%E4%BA%BA%E6%B0%97%E5%8B%95%E7%94%BB%E3%82%BD%E3%83%BC%E3%82%BF%E3%83%BC/gcoblkekjbplafeafmdgcghlcnenfdfp',
+      portfolioSlug: 'youtube-period-sorter',
+      techStack: ['JavaScript', 'Chrome Extension MV3', 'YouTube Data API v3'],
+    },
   ],
 }
