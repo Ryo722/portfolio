@@ -34,6 +34,7 @@ export const projects: Project[] = [
     },
     featured: true,
     relatedNotes: ['building-game-engine'],
+    knock: { id: 1, date: '2026-03-05', category: 'web' },
   },
   {
     slug: 'dm-card-generator',
@@ -84,6 +85,7 @@ export const projects: Project[] = [
     image: '/portfolio/images/projects/ev-panel-8.png',
     visibility: 'public',
     relatedNotes: ['usereducer-game-state'],
+    knock: { id: 2, date: '2026-03-08', category: 'game' },
   },
   {
     slug: 'm4fx-trade-signal',
@@ -109,6 +111,7 @@ export const projects: Project[] = [
     image: null,
     visibility: 'private',
     relatedNotes: ['llm-fx-pipeline'],
+    knock: { id: 3, date: '2026-03-12', category: 'web' },
   },
   {
     slug: 'multi-agent-os',
@@ -134,6 +137,7 @@ export const projects: Project[] = [
     image: null,
     visibility: 'private',
     relatedNotes: ['multi-agent-orchestration'],
+    knock: { id: 4, date: '2026-03-15', category: 'web' },
   },
   {
     slug: 'zero-trust-home-server',
@@ -159,6 +163,7 @@ export const projects: Project[] = [
     image: null,
     visibility: 'private',
     relatedNotes: ['zero-trust-home-server'],
+    knock: { id: 5, date: '2026-03-18', category: 'other' },
   },
   {
     slug: 'sns-auto-post',
@@ -183,6 +188,7 @@ export const projects: Project[] = [
     image: null,
     visibility: 'private',
     relatedNotes: ['sns-auto-post-monorepo'],
+    knock: { id: 6, date: '2026-03-20', category: 'web' },
   },
   {
     slug: 'pokeca-damage-unity',
@@ -228,6 +234,7 @@ export const projects: Project[] = [
     image: null,
     visibility: 'private',
     relatedNotes: ['notion-journal-automation'],
+    knock: { id: 7, date: '2026-03-23', category: 'web' },
   },
   {
     slug: 'cafenavi',
@@ -261,6 +268,7 @@ export const projects: Project[] = [
       'コード行数': '9,191',
       'テスト数': '82（Unit 68 + E2E 14）',
     },
+    knock: { id: 8, date: '2026-03-28', category: 'web' },
   },
   {
     slug: 'torabo-tsuki-case',
@@ -289,6 +297,7 @@ export const projects: Project[] = [
     image: '/portfolio/images/projects/torabo-tsuki-case.png',
     visibility: 'private',
     relatedNotes: ['torabo-tsuki-case'],
+    knock: { id: 9, date: '2026-04-13', category: 'other' },
   },
   {
     slug: 'pokemon-champions-builder',
@@ -323,6 +332,7 @@ export const projects: Project[] = [
     },
     featured: true,
     relatedNotes: ['pokemon-champions-cli-tried-but-fell-short', 'pokemon-champions-cli-tech-deep-dive'],
+    knock: { id: 10, date: '2026-05-01', category: 'cli' },
   },
   {
     slug: 'youtube-period-sorter',
@@ -352,5 +362,6 @@ export const projects: Project[] = [
     image: '/portfolio/images/projects/youtube-period-sorter.png',
     visibility: 'public',
     relatedNotes: ['youtube-period-sorter'],
+    knock: { id: 11, date: '2026-05-03', category: 'chrome-ext' },
   },
 ]

@@ -11,6 +11,14 @@ export type DesignDecision = {
   reasoning: LocalizedText
 }
 
+export type KnockCategory = 'web' | 'cli' | 'chrome-ext' | 'game' | 'other'
+
+export type ProjectKnock = {
+  id: number
+  date: string
+  category: KnockCategory
+}
+
 export type Project = {
   slug: string
   name: LocalizedText
@@ -28,6 +36,7 @@ export type Project = {
   designDecisions?: DesignDecision[]
   relatedNotes?: string[]
   architectureImage?: string
+  knock?: ProjectKnock
 }
 
 export type SkillCategory = {

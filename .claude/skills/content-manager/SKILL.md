@@ -78,8 +78,17 @@
   demoUrl: null,    // or 'https://...'
   image: null,      // or '/portfolio/images/projects/xxx.png'
   visibility: 'public',  // or 'private'
+  knock: { id: <次の連番>, date: 'YYYY-MM-DD', category: 'web' },  // 100本ノックにカウントする場合のみ
 }
 ```
+
+**`knock` フィールドについて（重要）**:
+- 100本ノックにカウントしたい制作物には必ず `knock` を付ける。`hundred-knock.ts` には触らない（projects.ts から自動派生）
+- `id`: 既存の最大 id +1（`src/data/hundred-knock.ts` の `knockChallenge.products` 末尾を確認）
+- `date`: 完成・公開日（YYYY-MM-DD）
+- `category`: `'web' | 'cli' | 'chrome-ext' | 'game' | 'other'` から選択
+- 100本ノック対象外（古い作品の遅延掲載など）の場合は `knock` を付けない
+- ポートフォリオに掲載しない 100本ノック専用エントリが必要な場合のみ、`hundred-knock.ts` の `extraKnockProducts` に追加する
 
 ### Step 5: 画像（任意）
 1. スクリーンショットを撮影
@@ -90,9 +99,14 @@
 ### Step 6: チェック
 1. `code-quality` スキルでビルド確認
 2. `brand-guard` スキルでコンテンツ確認
+3. 100本ノック反映確認: `npx vitest run src/data/__tests__/hundred-knock.test.ts` で id 連番・portfolioSlug 整合をチェック
 
 ## inventory 更新
 プロジェクト追加時は `portfolio-source/projects.inventory.json` も更新すること。
+
+## 100本ノック関連の責務分離
+- **projects.ts**: 単一ソース。`knock` フィールドを持たせれば自動カウント
+- **hundred-knock.ts**: `extraKnockProducts`（ポートフォリオに載せない knock 専用） + projects.ts からの派生のみ。手で products 配列を編集しない
 
 ## 参照
 - `docs/architecture/portfolio-soul.md`（プロジェクト記事のトーン基準）
