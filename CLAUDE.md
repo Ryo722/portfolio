@@ -165,3 +165,33 @@ portfolio/site/
 - TypeScript型チェック: `npx tsc --noEmit`
 - ビルド確認: `npm run build`
 - ローカルプレビュー: `npm run preview`
+
+## Takt 統合運用（2026-05-06 追加）
+
+公式 Takt CLI (`nrslib/takt`) を `.takt/` 配下で運用する。既存の `ops/backlog/` `ops/decisions/` 体系は不変、Takt は **大きめのコンテンツ作成・refactor を多段品質ゲート付きで消化する手段** として補完使用する。
+
+### 役割分離（既存体系を尊重）
+
+- `ops/backlog/current.md` = いま走っているタスクの管理（既存）
+- `ops/backlog/roadmap.md` = 中長期ロードマップ（既存）
+- `ops/decisions/<YYYY-MM-DD>-<title>.md` = 意思決定ログ（既存）
+- `.takt/tasks.yaml` = 公式 Takt CLI の実行キュー（gitignored、ローカル運用）
+
+`tasks.json` / `decision-log.md` は本 PJ では作らない（既存 `ops/` 体系で十分役割を果たしているため）。
+
+### Takt と既存コマンドの使い分け
+
+| やりたいこと | 使うもの |
+|---|---|
+| プロジェクト追加 / 更新 / ブログ作成 / X 投稿 | 既存 `/add-project` / `/write-blog` / `/x-post` 等のコマンド（`.claude/skills/`） |
+| 大規模 refactor / 新セクション追加 / 多段レビュー必要なコンテンツ | 公式 Takt CLI（`takt add` → `takt run`） |
+
+### 設定
+
+- `.takt/config.yaml`: `provider: claude-sdk` / `workflow: frontend-mini`（フロントエンド単一 PJ のため）
+- `.takt/.gitignore`: persona_sessions.json / runs / tasks.yaml は ignore、config.yaml / workflows / pieces / facets は git 管理
+
+### 参照
+
+- `~/claude-workspace/docs/takt-workflow.md` — Takt CLI 運用全般
+- `~/claude-workspace/docs/ai-development-workflow.md` — Codex 7 原則と統合
