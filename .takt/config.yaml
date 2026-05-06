@@ -1,6 +1,5 @@
 provider: claude-sdk
 model: sonnet
 language: ja
-workflow: frontend-mini
 concurrency: 1
 branch_name_strategy: ai
