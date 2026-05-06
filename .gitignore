@@ -31,7 +31,7 @@ ops/reports/lighthouse/
 
 # Tool runtime outputs
 .playwright-mcp/
-.takt/
+# .takt/ is managed by .takt/.gitignore (config.yaml/workflows/ tracked, runtime data ignored)
 
 # Legacy preview screenshots
 cafenavi-full.png
