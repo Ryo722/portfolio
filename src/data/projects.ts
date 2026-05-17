@@ -366,4 +366,32 @@ export const projects: Project[] = [
     relatedNotes: ['youtube-period-sorter', 'youtube-period-sorter-pwa'],
     knock: { id: 11, date: '2026-05-03', category: 'chrome-ext' },
   },
+  {
+    slug: 'quest-log',
+    name: {
+      ja: 'Quest Log',
+      en: 'Quest Log',
+    },
+    category: 'Webアプリ / ライフハック',
+    summary: {
+      ja: 'タスク管理をカードゲーム化した ADHD 向け Web アプリ',
+      en: 'Task management framed as a card game, ADHD-friendly',
+    },
+    description: {
+      ja: `タスク管理をカードゲーム的に楽しむ Web アプリ。クエスト完了でガチャチケットが手に入り、カードを引いて集める。\n\nADHD気質でタスク管理が苦手だったので、ゲーミフィケーションで続きやすくしようと考えた。Habitica の発想を参考にしつつ、カードゲーム好きの自分に刺さるようガチャ × カード収集に振り切った。\n\nNext.js 16 + Turso + Drizzle ORM で構築。コンボ機能、24時間クールダウン、罪悪感を煽らない強制ブレイク通知など、ADHD に配慮した設計を盛り込んだ。\n\nMVP は実装完了。ただし本番 deploy はまだ生成していない。商材化を見据えているが判断は保留中。`,
+      en: `A task management web app framed as a card game. Completing quests earns gacha tickets, which can be drawn for collectible cards.\n\nBuilt because I have ADHD traits and struggle with task management — I wanted gamification to make it stickier. Inspired by Habitica's approach, but pushed all-in on gacha × card collection to hit the card-game lover in me.\n\nBuilt with Next.js 16, Turso, and Drizzle ORM. Includes combo mechanics, 24-hour cooldowns, and a "forced break" notification designed to feel supportive rather than guilt-inducing — small touches for ADHD-friendly UX.\n\nMVP is feature-complete. Production deployment has not been generated yet. Considering commercialization but the decision is pending.`,
+    },
+    techStack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS 4', 'Framer Motion', 'Turso (libSQL)', 'Drizzle ORM', 'Vercel'],
+    highlights: [
+      { ja: 'ガチャ × カード収集 × タスク管理の組み合わせ (市場で未開拓)', en: 'Combines gacha, card collection, and task management — a niche not yet filled' },
+      { ja: 'ADHD 配慮: 罪悪感を煽らない強制ブレイク、コンボのドーパミン報酬', en: 'ADHD-friendly: forced break notifications without shame, combo mechanics for dopamine hits' },
+      { ja: 'Next.js 16 + Turso (libSQL) + Drizzle ORM の最新スタック', en: 'Built on Next.js 16, Turso (libSQL), and Drizzle ORM' },
+      { ja: 'Repository Pattern + 認証スタブで Clerk/Auth.js への移行を後付け可能に設計', en: 'Repository pattern with auth stub for future Clerk/Auth.js migration' },
+    ],
+    githubUrl: 'https://github.com/Ryo722/quest-log',
+    demoUrl: null,
+    image: null,
+    visibility: 'private',
+    knock: { id: 12, date: '2026-05-15', category: 'web' },
+  },
 ]
