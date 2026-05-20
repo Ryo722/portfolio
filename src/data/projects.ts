@@ -394,4 +394,31 @@ export const projects: Project[] = [
     visibility: 'private',
     knock: { id: 12, date: '2026-05-15', category: 'web' },
   },
+  {
+    slug: 'macroctl',
+    name: { ja: 'macroctl', en: 'macroctl' },
+    category: 'CLI / macOS ユーティリティ',
+    summary: {
+      ja: '8BitDo Ultimate 2 のマクロを無制限にバックアップする CLI + メニューバー GUI',
+      en: 'CLI + menu bar GUI that backs up 8BitDo Ultimate 2 macros beyond the 4-slot limit',
+    },
+    description: {
+      ja: `8BitDo Ultimate 2 Controller のマクロを外部 JSON として無制限に保管し、公式アプリのプリファレンスと双方向同期する CLI + macOS メニューバー GUI。\n\n公式アプリは HW スロット 4 個までしか保持できず、しかも挙動が不安定でマクロやプロファイルが消えることがあった。安心してバックアップを取れる場所が欲しくて作った。\n\npydantic v2 スキーマで設定ファイルと JSON の round-trip 整合性を担保し、書込前の自動 backup と公式アプリ起動中の pgrep ガードで壊れにくくしている。CLI とメニューバー GUI のどちらからでも同じ操作ができる。\n\n本当は HW スロット 4 個の上限自体を突破したかったが、HID 直書きまでは実装ハードルが高く、Phase 1 ではバックアップ機能に絞った。ミニマムな機能だが、自分で使っていてそれなりに便利。`,
+      en: `A CLI + macOS menu bar GUI that stores 8BitDo Ultimate 2 Controller macros as external JSON files and syncs them with the official app's preferences — beyond the 4-slot ceiling.\n\nThe official app only keeps 4 macros in hardware slots, and worse, it sometimes loses macros or profiles unexpectedly. I wanted a safe place to back them up.\n\nBuilt round-trip guarantees between the preference file and JSON with pydantic v2 schemas, plus automatic backups before any write and a pgrep guard that blocks writes while the official app is running. The same operations are available from both the CLI and the menu bar GUI.\n\nI originally wanted to bypass the 4-slot hardware limit itself, but direct HID writes were too high a bar, so I scoped Phase 1 down to backups. The feature set is minimal, but I use it myself and it's comfortable enough.`,
+    },
+    techStack: ['Python 3.12', 'pydantic v2', 'plistlib', 'rumps', 'PyObjC', 'pytest'],
+    highlights: [
+      { ja: 'マクロを外部 JSON 化して無制限バックアップ', en: 'External JSON library for unlimited macro backups' },
+      { ja: '設定ファイル ⇔ JSON の双方向同期 + round-trip 整合性担保', en: 'Bidirectional sync between preferences and JSON with round-trip integrity' },
+      { ja: '書込前の自動 backup + 公式アプリ起動中の pgrep ガード', en: 'Auto backup before write + pgrep guard against the official app' },
+      { ja: 'dry-run デフォルト + `--apply` で実書込 (誤操作防止)', en: 'Dry-run by default, `--apply` required for actual writes' },
+      { ja: 'macOS メニューバー GUI (rumps) は CLI の薄いシェル', en: 'macOS menu bar GUI (rumps) as a thin shell over the CLI' },
+      { ja: '167 件のテスト + decision log (D-01〜D-17) で判断追跡', en: '167 tests + decision log (D-01..D-17) tracking design decisions' },
+    ],
+    githubUrl: 'https://github.com/Ryo722/8bitdoUltimate',
+    demoUrl: null,
+    image: null,
+    visibility: 'public',
+    knock: { id: 13, date: '2026-05-20', category: 'cli' },
+  },
 ]
