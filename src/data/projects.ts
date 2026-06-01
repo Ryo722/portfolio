@@ -421,4 +421,35 @@ export const projects: Project[] = [
     visibility: 'public',
     knock: { id: 13, date: '2026-05-20', category: 'cli' },
   },
+  {
+    slug: 'life-plan-simulator',
+    name: { ja: 'ライフプランシミュレーター', en: 'Life Plan Simulator' },
+    category: 'シミュレーション / CLIツール',
+    summary: {
+      ja: '日本の制度を前提に税・社保・年金・教育費・投資を年次で積み上げる生涯試算CLI',
+      en: "A CLI that simulates a lifetime financial plan under Japan's tax and social systems",
+    },
+    description: {
+      ja: `日本の制度（税・社会保険・年金・教育費・投資・iDeCo）を前提に、収入と支出を年次で積み上げて生涯のライフプランを試算するCLIツール。\n\n適宜自分に合わせてカスタマイズできるシミュレーションツールが欲しかったため作った。自分で使うのが目的。\n\n税率・社会保険料・教育費などの制度値はコードに直接書かず、すべてYAMLから注入する構造にした。6つの制度ファイルは一次ソースと突合して出典を明示し、計算結果には内訳と根拠（breakdown）を持たせて追えるようにしている。金額は整数円、率はDecimalで扱い、丸めは年境界で1回。\n\n今は自分用に試算エンジンとして機能する段階。Web UIやグラフ化は未着手で、CLIで動かすMVPに留めている。`,
+      en: `A CLI tool that simulates a lifetime financial plan under Japan's tax, social insurance, pension, education, investment, and iDeCo systems, accumulating income and expenses year by year.\n\nI built it because I wanted a simulation tool I could freely customize to my own situation. It's meant for my own use.\n\nInstitutional values — tax rates, social insurance premiums, education costs — aren't hardcoded; they're all injected from YAML. Six of these data files are cross-checked against primary sources with citations, and every result carries a breakdown so the reasoning can be traced. Amounts are integer yen, rates use Decimal, and rounding happens once at each year boundary.\n\nFor now it works as a calculation engine for my own use. No web UI or charts yet — it stays a CLI MVP.`,
+    },
+    techStack: ['Python', 'uv', 'PyYAML', 'pytest', 'ruff', 'mypy', 'hatchling'],
+    highlights: [
+      { ja: '制度値をdomainにハードコードせず全てYAML注入（税・社保・年金・教育・投資・iDeCo）', en: 'All institutional values injected from YAML, never hardcoded (tax, social insurance, pension, education, investment, iDeCo)' },
+      { ja: '6制度ファイルを一次ソースと突合しverified化・出典明示', en: 'Six data files verified against primary sources with citations' },
+      { ja: '計算結果にbreakdown（内訳と根拠）を保持し追跡可能', en: 'Every result carries a breakdown of figures and their basis' },
+      { ja: 'クリーンアーキテクチャ（domainは純粋計算・依存は内向き）', en: 'Clean architecture — pure-calculation domain, dependencies point inward' },
+      { ja: '名目/実質の年次推移・破綻年・安全余裕額をCSV/Markdown出力＋シナリオ比較', en: 'Nominal & real projections, bankruptcy year, safety margin in CSV/Markdown with scenario comparison' },
+    ],
+    githubUrl: null,
+    demoUrl: null,
+    image: null,
+    visibility: 'private',
+    scale: {
+      'テスト数': '326',
+      '制度データ': '6 yaml (verified)',
+      '試算期間': '60年',
+    },
+    knock: { id: 14, date: '2026-06-01', category: 'cli' },
+  },
 ]
