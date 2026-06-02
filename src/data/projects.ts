@@ -475,7 +475,7 @@ export const projects: Project[] = [
     githubUrl: null,
     demoUrl: 'https://chaochao-online.hana05ry.workers.dev',
     image: '/portfolio/images/projects/chaochao-online.png',
-    visibility: 'public',
+    visibility: 'private',
     scale: {
       'プレイ人数': '2〜6人',
       'ランタイム': 'Node / Cloudflare DO',
