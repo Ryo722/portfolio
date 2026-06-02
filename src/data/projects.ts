@@ -452,4 +452,35 @@ export const projects: Project[] = [
     },
     knock: { id: 14, date: '2026-06-01', category: 'cli' },
   },
+  {
+    slug: 'chaochao-online',
+    name: { ja: 'チャオチャオ オンライン', en: 'Chao Chao Online' },
+    category: 'フルスタック / オンラインゲーム',
+    summary: {
+      ja: 'ブラフ系ボードゲーム「チャオチャオ」を最大6人でオンライン対戦',
+      en: 'Online play for the bluffing board game Chao Chao, up to 6 players',
+    },
+    description: {
+      ja: `ブラフ系ボードゲーム「チャオチャオ」を最大6人でオンライン対戦できる Web アプリ。\n\nチャオチャオが好きで、離れた友人ともオンラインで遊びたかった。それが作った理由。自分が遊ぶために作った。\n\n検証済みのゲームエンジンを、ローカルの Node 参照サーバーと Cloudflare Durable Objects の2ランタイムで無改造のまま共用する構成。出目の真値はサーバー側だけが持ち、配信直前に redactStateFor で秘匿する。チャレンジ時のみ全員に公開するブラフの肝を、サーバー権威で担保した。WebSocket Hibernation + SQLite 永続化でランタイム0円を厳守。CPU 対 CPU を3〜6人 各4000戦回し、勝率均等と秘匿不変条件を検査している。\n\n一旦完成。これから友人とプレイする。推したいのは、プレイしていて楽しい UI。`,
+      en: `A web app for playing the bluffing board game Chao Chao online, with up to 6 players.\n\nI love Chao Chao and wanted to play it online with friends who live far away. That's the whole reason — I built it for myself to play.\n\nA verified game engine runs unchanged across two runtimes: a local Node reference server and Cloudflare Durable Objects. Only the server holds the true value of each die roll, masking it via redactStateFor right before broadcast. The bluff opens to everyone only on a challenge — that core is guarded by server authority. WebSocket Hibernation + SQLite persistence keeps runtime cost at zero. CPU-vs-CPU runs (3–6 players, 4,000 games each) check for even win rates and secrecy invariants.\n\nDone for now. Next I'll actually play it with friends. The part I'm proud of: a UI that's fun to play.`,
+    },
+    techStack: ['TypeScript', 'Cloudflare Workers', 'Durable Objects', 'WebSocket (ws)', 'Node.js', 'SQLite', 'wrangler'],
+    highlights: [
+      { ja: '検証済みエンジンを Node 参照サーバーと Cloudflare DO の2ランタイムで無改造共用', en: 'Verified engine shared unchanged across a Node reference server and Cloudflare DO' },
+      { ja: 'サーバー権威 + redactStateFor で出目を秘匿（チャレンジ時のみ公開）', en: 'Server-authoritative secrecy: rolls masked via redactStateFor, revealed only on a challenge' },
+      { ja: 'WebSocket Hibernation + SQLite 永続化でランタイム0円', en: 'Runtime cost zero via WebSocket Hibernation + SQLite persistence' },
+      { ja: '切断時は席トークンで同一席へ再接続、離席はボットが補完', en: 'Reconnect to the same seat via seat token; bots cover absences' },
+      { ja: 'CPU 対 CPU 3〜6人 各4000戦で勝率均等・秘匿不変条件を検査', en: 'CPU-vs-CPU (3–6 players, 4,000 games each) verifies even win rates and secrecy invariants' },
+    ],
+    githubUrl: null,
+    demoUrl: 'https://chaochao-online.hana05ry.workers.dev',
+    image: '/portfolio/images/projects/chaochao-online.png',
+    visibility: 'public',
+    scale: {
+      'プレイ人数': '2〜6人',
+      'ランタイム': 'Node / Cloudflare DO',
+      'シミュレーション': '3〜6人 各4000戦',
+    },
+    knock: { id: 15, date: '2026-06-02', category: 'game' },
+  },
 ]
