@@ -158,8 +158,11 @@ portfolio/site/
 - `ops:` 運用関連
 
 ### ブランチ運用
-- `main` ブランチのみ（GitHub Pages直デプロイ）
-- 大規模変更時はPRを作成
+- 長期ブランチは `main` のみ（GitHub Actions で GitHub Pages へデプロイ）
+- **`main` への直 push は GitHub のブランチ保護で拒否される**（`GH006: Changes must be made through a pull request`）。
+  **変更規模に関わらず、作業ブランチを切って PR 経由でマージすること**
+- 作業ブランチ命名: `fix/` `feat/` `docs/` `ci/` などコミット種別に揃える
+- push は `~/.claude/bin/safe-git-push.sh <branch>` 経由（引数は `[branch]` と `--dry-run` のみ）
 
 ### テスト
 - TypeScript型チェック: `npx tsc --noEmit`
