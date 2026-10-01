@@ -1,0 +1,17 @@
+{
+  "name": "Ryo722 Portfolio",
+  "short_name": "Ryo722",
+  "description": "好奇心で手を動かし、アイデアを形にする。飽きっぽい凡人が10個のプロダクトを作った記録。",
+  "start_url": "/portfolio/",
+  "display": "standalone",
+  "theme_color": "#1A1816",
+  "background_color": "#1A1816",
+  "icons": [
+    {
+      "src": "/portfolio/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
